@@ -50,17 +50,43 @@ public class PlayerBianque : MonoBehaviour
         SwitchAnim();
     }
 
+    [Header("控制器")]
+    public GameObject Handle;
+
     void GroundMovement()
     {
-        float horizontal_move = Input.GetAxis("Horizontal");
-        float faced_direction = Input.GetAxisRaw("Horizontal");
-        //角色移动
-        rb.velocity = new Vector2(horizontal_move * speed * Time.fixedDeltaTime, rb.velocity.y);
-        anim.SetFloat("Walking", Mathf.Abs(faced_direction));
-        //角色面向
-        if (faced_direction != 0)
+        //float horizontal_move = Input.GetAxis("Horizontal");
+        //float faced_direction = Input.GetAxisRaw("Horizontal");
+
+        /*修订*/
+        if (Handle != null)
         {
-            transform.localScale = new Vector3(faced_direction, 1, 1);
+            float posX = Handle.transform.localPosition.x; //获取 Handle 对象的本地 X 坐标值
+            float horizontal_move = posX / 128f; //模拟 Input.GetAxis 的返回值
+
+            float faced_direction;
+            if (posX > 0)
+            {
+                faced_direction = 1; //模拟 Input.GetAxisRaw 返回 1
+            }
+            else if (posX < 0)
+            {
+                faced_direction = -1; //模拟 Input.GetAxisRaw 返回 -1
+            }
+            else
+            {
+                faced_direction = 0; //模拟 Input.GetAxisRaw 返回 0
+            }
+            /*修订结束*/
+
+            //角色移动
+            rb.velocity = new Vector2(horizontal_move * speed * Time.fixedDeltaTime, rb.velocity.y);
+            anim.SetFloat("Walking", Mathf.Abs(faced_direction));
+            //角色面向
+            if (faced_direction != 0)
+            {
+                transform.localScale = new Vector3(faced_direction, 1, 1);
+            }
         }
     }
 
@@ -112,7 +138,10 @@ public class PlayerBianque : MonoBehaviour
         }
         if (collision.tag == "Lingwu")
         {
-            Dialog_Lingwu.SetActive(true);
+            if (Dialog_Lingwu != null)
+            {
+                Dialog_Lingwu.SetActive(true);
+            }
         }
     }
     //离开触发器
@@ -120,7 +149,10 @@ public class PlayerBianque : MonoBehaviour
     {
         if (collision.tag == "Lingwu")
         {
-            Dialog_Lingwu.SetActive(false);
+            if (Dialog_Lingwu != null)
+            {
+                Dialog_Lingwu.SetActive(false);
+            }
         }
     }
         // 协程方法

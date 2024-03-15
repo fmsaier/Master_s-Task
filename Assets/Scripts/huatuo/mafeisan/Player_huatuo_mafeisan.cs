@@ -35,13 +35,21 @@ public class Player_huatuo_mafeisan : MonoBehaviour
             anim.SetTrigger("Throwing");
         }
     }
+
+    public void ClickToAnim()
+    {
+        throwAu.Play();
+        anim.SetTrigger("Throwing");
+    }
+
+    [Header("¿ØÖÆÆ÷")]
+    public GameObject Handle;
+
     void Movement()
     {
-        float verticalmove;
-        verticalmove = Input.GetAxis("Vertical");
-        if (verticalmove != 0)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, verticalmove * speed);
-        }
+        float posY = Handle.transform.localPosition.y;
+        float vertical_move = posY / 128f;
+
+        rb.velocity = new Vector2(rb.velocity.x, vertical_move * speed);
     }
 }

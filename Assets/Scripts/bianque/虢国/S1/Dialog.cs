@@ -80,6 +80,14 @@ public class Dialog : MonoBehaviour
         click.Play();
         StartCoroutine(TransitionToScene(sceneFrom, sceneTogo));
     }
+    public GameObject destroy;
+    public void DestroyIt()
+    {
+        if (destroy != null)
+        {
+            Destroy(destroy);
+        }
+    }
     // 协程方法
     private IEnumerator TransitionToScene(string from, string to)
     {

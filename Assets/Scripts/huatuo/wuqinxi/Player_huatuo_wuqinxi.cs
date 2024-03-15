@@ -33,6 +33,13 @@ public class Player_huatuo_wuqinxi : MonoBehaviour
     public GameObject Xiong_3;
     public GameObject Yuan_3;
     public GameObject Niao_3;
+
+    [Header("特效")]
+    public GameObject tiger;
+    public GameObject deer;
+    public GameObject bear;
+    public GameObject ape;
+    public GameObject bird;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,138 +49,277 @@ public class Player_huatuo_wuqinxi : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        Action();
-    }
+    //void Update()
+    //{
+    //    Action();
+    //}
 
-    void Action()
+    public void Tiger()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        Vector3 prefabPosition = tiger.transform.position;
+        Quaternion prefabRotation = tiger.transform.rotation;
+        Instantiate(tiger, prefabPosition, prefabRotation);
+        anim.SetTrigger("Hu");
+        if (Hu_1 && Hu_1.active)
         {
-            anim.SetTrigger("Hu");
-            if(Hu_1 && Hu_1.active)
-            {
-                collectionAu.Play();
-                Destroy(Hu_1);
-                collection += 20;
-                collectionText.text = "得分：" + collection;
-            }
-            else if (Hu_2 && Hu_2.active)
-            {
-                collectionAu.Play();
-                Destroy(Hu_2);
-                collection += 20;
-                collectionText.text = "得分：" + collection;
-            }
-            else if (Hu_3 && Hu_3.active)
-            {
-                collectionAu.Play();
-                Destroy(Hu_3);
-                collection += 20;
-                collectionText.text = "得分：" + collection;
-            }
-
+            collectionAu.Play();
+            Destroy(Hu_1);
+            collection += 20;
+            collectionText.text = "得分：" + collection;
         }
-        if (Input.GetKeyDown(KeyCode.A))
+        else if (Hu_2 && Hu_2.active)
         {
-            anim.SetTrigger("Lu");
-            if (Lu_1 && Lu_1.active)
-            {
-                collectionAu.Play();
-                Destroy(Lu_1);
-                collection += 20;
-                collectionText.text = "得分：" + collection;
-            }
-            else if(Lu_2 && Lu_2.active)
-            {
-                collectionAu.Play();
-                Destroy(Lu_2);
-                collection += 20;
-                collectionText.text = "得分：" + collection;
-            }
-            else if(Lu_3 && Lu_3.active)
-            {
-                collectionAu.Play();
-                Destroy(Lu_3);
-                collection += 20;
-                collectionText.text = "得分：" + collection;
-            }
+            collectionAu.Play();
+            Destroy(Hu_2);
+            collection += 20;
+            collectionText.text = "得分：" + collection;
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        else if (Hu_3 && Hu_3.active)
         {
-            anim.SetTrigger("Xiong");
-            if (Xiong_1 && Xiong_1.active)
-            {
-                collectionAu.Play();
-                Destroy(Xiong_1);
-                collection += 20;
-                collectionText.text = "得分：" + collection;
-            }
-            else if(Xiong_2 && Xiong_2.active)
-            {
-                collectionAu.Play();
-                Destroy(Xiong_2);
-                collection += 20;
-                collectionText.text = "得分：" + collection;
-            }
-            else if(Xiong_3 && Xiong_3.active)
-            {
-                collectionAu.Play();
-                Destroy(Xiong_3);
-                collection += 20;
-                collectionText.text = "得分：" + collection;
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            anim.SetTrigger("Yuan");
-            if (Yuan_1 && Yuan_1.active)
-            {
-                collectionAu.Play();
-                Destroy(Yuan_1);
-                collection += 20;
-                collectionText.text = "得分：" + collection;
-            }
-            else if(Yuan_2 && Yuan_2.active)
-            {
-                collectionAu.Play();
-                Destroy(Yuan_2);
-                collection += 20;
-                collectionText.text = "得分：" + collection;
-            }
-            else if(Yuan_3 && Yuan_3.active)
-            {
-                collectionAu.Play();
-                Destroy(Yuan_3);
-                collection += 20;
-                collectionText.text = "得分：" + collection;
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            anim.SetTrigger("Niao");
-            if (Niao_1 && Niao_1.active)
-            {
-                collectionAu.Play();
-                Destroy(Niao_1);
-                collection += 20;
-                collectionText.text = "得分：" + collection;
-            }
-            else if(Niao_2 && Niao_2.active)
-            {
-                collectionAu.Play();
-                Destroy(Niao_2);
-                collection += 20;
-                collectionText.text = "得分：" + collection;
-            }
-            else if(Niao_3 && Niao_3.active)
-            {
-                collectionAu.Play();
-                Destroy(Niao_3);
-                collection += 20;
-                collectionText.text = "得分：" + collection;
-            }
+            collectionAu.Play();
+            Destroy(Hu_3);
+            collection += 20;
+            collectionText.text = "得分：" + collection;
         }
     }
+    public void Deer()
+    {
+        Vector3 prefabPosition = deer.transform.position;
+        Quaternion prefabRotation = deer.transform.rotation;
+        Instantiate(deer, prefabPosition, prefabRotation);
+        anim.SetTrigger("Lu");
+        if (Lu_1 && Lu_1.active)
+        {
+            collectionAu.Play();
+            Destroy(Lu_1);
+            collection += 20;
+            collectionText.text = "得分：" + collection;
+        }
+        else if (Lu_2 && Lu_2.active)
+        {
+            collectionAu.Play();
+            Destroy(Lu_2);
+            collection += 20;
+            collectionText.text = "得分：" + collection;
+        }
+        else if (Lu_3 && Lu_3.active)
+        {
+            collectionAu.Play();
+            Destroy(Lu_3);
+            collection += 20;
+            collectionText.text = "得分：" + collection;
+        }
+    }
+    public void Bear()
+    {
+        Vector3 prefabPosition = bear.transform.position;
+        Quaternion prefabRotation = bear.transform.rotation;
+        Instantiate(bear, prefabPosition, prefabRotation);
+        anim.SetTrigger("Xiong");
+        if (Xiong_1 && Xiong_1.active)
+        {
+            collectionAu.Play();
+            Destroy(Xiong_1);
+            collection += 20;
+            collectionText.text = "得分：" + collection;
+        }
+        else if (Xiong_2 && Xiong_2.active)
+        {
+            collectionAu.Play();
+            Destroy(Xiong_2);
+            collection += 20;
+            collectionText.text = "得分：" + collection;
+        }
+        else if (Xiong_3 && Xiong_3.active)
+        {
+            collectionAu.Play();
+            Destroy(Xiong_3);
+            collection += 20;
+            collectionText.text = "得分：" + collection;
+        }
+    }
+    public void Ape()
+    {
+        Vector3 prefabPosition = ape.transform.position;
+        Quaternion prefabRotation = ape.transform.rotation;
+        Instantiate(ape, prefabPosition, prefabRotation);
+        anim.SetTrigger("Yuan");
+        if (Yuan_1 && Yuan_1.active)
+        {
+            collectionAu.Play();
+            Destroy(Yuan_1);
+            collection += 20;
+            collectionText.text = "得分：" + collection;
+        }
+        else if (Yuan_2 && Yuan_2.active)
+        {
+            collectionAu.Play();
+            Destroy(Yuan_2);
+            collection += 20;
+            collectionText.text = "得分：" + collection;
+        }
+        else if (Yuan_3 && Yuan_3.active)
+        {
+            collectionAu.Play();
+            Destroy(Yuan_3);
+            collection += 20;
+            collectionText.text = "得分：" + collection;
+        }
+    }
+    public void Bird()
+    {
+        Vector3 prefabPosition = bird.transform.position;
+        Quaternion prefabRotation = bird.transform.rotation;
+        Instantiate(bird, prefabPosition, prefabRotation);
+        anim.SetTrigger("Niao");
+        if (Niao_1 && Niao_1.active)
+        {
+            collectionAu.Play();
+            Destroy(Niao_1);
+            collection += 20;
+            collectionText.text = "得分：" + collection;
+        }
+        else if (Niao_2 && Niao_2.active)
+        {
+            collectionAu.Play();
+            Destroy(Niao_2);
+            collection += 20;
+            collectionText.text = "得分：" + collection;
+        }
+        else if (Niao_3 && Niao_3.active)
+        {
+            collectionAu.Play();
+            Destroy(Niao_3);
+            collection += 20;
+            collectionText.text = "得分：" + collection;
+        }
+    }
+    //void Action()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.W))
+    //    {
+    //        anim.SetTrigger("Hu");
+    //        if(Hu_1 && Hu_1.active)
+    //        {
+    //            collectionAu.Play();
+    //            Destroy(Hu_1);
+    //            collection += 20;
+    //            collectionText.text = "得分：" + collection;
+    //        }
+    //        else if (Hu_2 && Hu_2.active)
+    //        {
+    //            collectionAu.Play();
+    //            Destroy(Hu_2);
+    //            collection += 20;
+    //            collectionText.text = "得分：" + collection;
+    //        }
+    //        else if (Hu_3 && Hu_3.active)
+    //        {
+    //            collectionAu.Play();
+    //            Destroy(Hu_3);
+    //            collection += 20;
+    //            collectionText.text = "得分：" + collection;
+    //        }
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.A))
+    //    {
+    //        anim.SetTrigger("Lu");
+    //        if (Lu_1 && Lu_1.active)
+    //        {
+    //            collectionAu.Play();
+    //            Destroy(Lu_1);
+    //            collection += 20;
+    //            collectionText.text = "得分：" + collection;
+    //        }
+    //        else if(Lu_2 && Lu_2.active)
+    //        {
+    //            collectionAu.Play();
+    //            Destroy(Lu_2);
+    //            collection += 20;
+    //            collectionText.text = "得分：" + collection;
+    //        }
+    //        else if(Lu_3 && Lu_3.active)
+    //        {
+    //            collectionAu.Play();
+    //            Destroy(Lu_3);
+    //            collection += 20;
+    //            collectionText.text = "得分：" + collection;
+    //        }
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.S))
+    //    {
+    //        anim.SetTrigger("Xiong");
+    //        if (Xiong_1 && Xiong_1.active)
+    //        {
+    //            collectionAu.Play();
+    //            Destroy(Xiong_1);
+    //            collection += 20;
+    //            collectionText.text = "得分：" + collection;
+    //        }
+    //        else if(Xiong_2 && Xiong_2.active)
+    //        {
+    //            collectionAu.Play();
+    //            Destroy(Xiong_2);
+    //            collection += 20;
+    //            collectionText.text = "得分：" + collection;
+    //        }
+    //        else if(Xiong_3 && Xiong_3.active)
+    //        {
+    //            collectionAu.Play();
+    //            Destroy(Xiong_3);
+    //            collection += 20;
+    //            collectionText.text = "得分：" + collection;
+    //        }
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.D))
+    //    {
+    //        anim.SetTrigger("Yuan");
+    //        if (Yuan_1 && Yuan_1.active)
+    //        {
+    //            collectionAu.Play();
+    //            Destroy(Yuan_1);
+    //            collection += 20;
+    //            collectionText.text = "得分：" + collection;
+    //        }
+    //        else if(Yuan_2 && Yuan_2.active)
+    //        {
+    //            collectionAu.Play();
+    //            Destroy(Yuan_2);
+    //            collection += 20;
+    //            collectionText.text = "得分：" + collection;
+    //        }
+    //        else if(Yuan_3 && Yuan_3.active)
+    //        {
+    //            collectionAu.Play();
+    //            Destroy(Yuan_3);
+    //            collection += 20;
+    //            collectionText.text = "得分：" + collection;
+    //        }
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.X))
+    //    {
+    //        anim.SetTrigger("Niao");
+    //        if (Niao_1 && Niao_1.active)
+    //        {
+    //            collectionAu.Play();
+    //            Destroy(Niao_1);
+    //            collection += 20;
+    //            collectionText.text = "得分：" + collection;
+    //        }
+    //        else if(Niao_2 && Niao_2.active)
+    //        {
+    //            collectionAu.Play();
+    //            Destroy(Niao_2);
+    //            collection += 20;
+    //            collectionText.text = "得分：" + collection;
+    //        }
+    //        else if(Niao_3 && Niao_3.active)
+    //        {
+    //            collectionAu.Play();
+    //            Destroy(Niao_3);
+    //            collection += 20;
+    //            collectionText.text = "得分：" + collection;
+    //        }
+    //    }
+    //}
 }

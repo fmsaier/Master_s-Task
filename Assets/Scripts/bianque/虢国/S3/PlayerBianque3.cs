@@ -33,27 +33,67 @@ public class PlayerBianque3 : MonoBehaviour
         Movement();
     }
 
+    [Header("控制器")]
+    public GameObject Handle;
+
     void Movement()
     {
-        float horizontal_move = Input.GetAxis("Horizontal");
-        float faced_direction = Input.GetAxisRaw("Horizontal");
-        //角色移动
-        rb.velocity = new Vector2(horizontal_move * speed * Time.fixedDeltaTime, rb.velocity.y);
-        anim.SetFloat("Walking", Mathf.Abs(faced_direction));
-        //角色面向
-        if (faced_direction != 0)
+        /*修订*/
+        if (Handle != null)
         {
-            transform.localScale = new Vector3(faced_direction, 1, 1);
-        }
+            float posX = Handle.transform.localPosition.x;  //获取 Handle 对象的本地 X 坐标值
+            float horizontal_move = posX / 128f;  //模拟 Input.GetAxis 的返回值
 
-        float verticalmove;
-        verticalmove = Input.GetAxis("Vertical");
-        float verticalSpeed = Input.GetAxisRaw("Vertical");
-        if (verticalmove != 0)
-        {
+            float faced_direction;
+            if (posX > 0)
+            {
+                faced_direction = 1;  //模拟 Input.GetAxisRaw 返回 1
+            }
+            else if (posX < 0)
+            {
+                faced_direction = -1;  //模拟 Input.GetAxisRaw 返回 -1
+            }
+            else
+            {
+                faced_direction = 0;  //模拟 Input.GetAxisRaw 返回 0
+            }
+
+            //角色移动
+            rb.velocity = new Vector2(horizontal_move * speed * Time.fixedDeltaTime, rb.velocity.y);
+            anim.SetFloat("Walking", Mathf.Abs(faced_direction));
+            //角色面向
+            if (faced_direction != 0)
+            {
+                transform.localScale = new Vector3(faced_direction, 1, 1);
+            }
+
+            float posY = Handle.transform.localPosition.y;
+            float vertical_move = posY / 128f;
+
+            float verticalSpeed;
+            if (posY != 0)
+            {
+                verticalSpeed = 1;
+            }
+            else
+            {
+                verticalSpeed = 0;
+            }
+
             anim.SetFloat("Walking", Mathf.Abs(verticalSpeed));
-            rb.velocity = new Vector2(rb.velocity.x, verticalmove * speed * Time.fixedDeltaTime);
+            rb.velocity = new Vector2(rb.velocity.x, vertical_move * speed * Time.fixedDeltaTime);
+            /*修订结束*/
         }
+        //float horizontal_move = Input.GetAxis("Horizontal");
+        //float faced_direction = Input.GetAxisRaw("Horizontal");
+
+        //float vertical_move = Input.GetAxis("Vertical");
+        //float verticalSpeed = Input.GetAxisRaw("Vertical");
+        //if (vertical_move != 0)
+        //{
+        //    anim.SetFloat("Walking", Mathf.Abs(verticalSpeed));
+        //    rb.velocity = new Vector2(rb.velocity.x, vertical_move * speed * Time.fixedDeltaTime);
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

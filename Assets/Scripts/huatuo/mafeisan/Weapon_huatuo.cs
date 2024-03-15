@@ -21,12 +21,12 @@ public class Weapon_huatuo : MonoBehaviour
         }
     }
 
-    void Shootzhongcaoyao()
+    public void Shootzhongcaoyao()
     {
         // 让世界记住创建的对象，以及位置
         Instantiate(zhongcaoyaoPrefab, firePoint.position, firePoint.rotation);
     }
-    void Shootmafeisan()
+    public void Shootmafeisan()
     {
         // 让世界记住创建的对象，以及位置
         Instantiate(mafeisanPrefab, firePoint.position, firePoint.rotation);

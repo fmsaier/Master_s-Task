@@ -38,10 +38,33 @@ public class Player_Bowuguan : MonoBehaviour
         SwitchAnim();
     }
 
+    [Header("控制器")]
+    public GameObject Handle;
+
     void GroundMovement()
     {
-        float horizontal_move = Input.GetAxis("Horizontal");
-        float faced_direction = Input.GetAxisRaw("Horizontal");
+        //float horizontal_move = Input.GetAxis("Horizontal");
+        //float faced_direction = Input.GetAxisRaw("Horizontal");
+
+        /*修订*/
+        float posX = Handle.transform.localPosition.x; //获取 Handle 对象的本地 X 坐标值
+        float horizontal_move = posX / 128f; //模拟 Input.GetAxis 的返回值
+
+        float faced_direction;
+        if (posX > 0)
+        {
+            faced_direction = 1; //模拟 Input.GetAxisRaw 返回 1
+        }
+        else if (posX < 0)
+        {
+            faced_direction = -1; //模拟 Input.GetAxisRaw 返回 -1
+        }
+        else
+        {
+            faced_direction = 0; //模拟 Input.GetAxisRaw 返回 0
+        }
+        /*修订结束*/
+
         //角色移动
         rb.velocity = new Vector2(horizontal_move * speed * Time.fixedDeltaTime, rb.velocity.y);
         anim.SetFloat("Walking", Mathf.Abs(faced_direction));
