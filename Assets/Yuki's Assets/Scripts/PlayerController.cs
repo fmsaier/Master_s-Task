@@ -25,7 +25,7 @@ namespace Yuki
             {
                 coldDownTimeCounter = shootColdDown;
                 GameObject b = Instantiate(bullet, transform.position, Quaternion.identity);
-                b.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed, 0);
+                b.GetComponent<Rigidbody2D>().velocity = Quaternion.Euler(0, 0, inputY * 10) * new Vector2(bulletSpeed + inputX * 5, 0);
             }
         }
 

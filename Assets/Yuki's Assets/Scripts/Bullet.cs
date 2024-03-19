@@ -6,8 +6,14 @@ namespace Yuki
 {
     public class Bullet : MonoBehaviour
     {
+        private Rigidbody2D rb;
+        private Animator animator;
+
         private void Start()
         {
+            rb = GetComponent<Rigidbody2D>();
+            animator = GetComponent<Animator>();
+
             StartCoroutine(RegularDestruction());
         }
 
@@ -17,6 +23,14 @@ namespace Yuki
 
             Destroy(gameObject);
         }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            rb.velocity = Vector2.zero;
+            animator.SetTrigger("hit");
+        }
+
+        public void DestroySelf() => Destroy(gameObject);
     }
 }
 
