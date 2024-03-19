@@ -48,6 +48,7 @@ TagManager:
   - ImageZhangzhongjing
   - Snake
   - Lingwu
+  - Ground
   layers:
   - Default
   - TransparentFX
