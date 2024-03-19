@@ -6,9 +6,28 @@ namespace Yuki
 {
     public class PlayerController : MonoBehaviour
     {
+        [Header("±¾Ìå")]
         private float inputX, inputY;
-        private float moveAngle;
         public float moveSpeed;
+        public float shootColdDown;
+        private float coldDownTimeCounter;
+
+        [Header("×Óµ¯")]
+        public GameObject bullet;
+        public float bulletSpeed;
+
+        private void Update()
+        {
+            if (coldDownTimeCounter > 0)
+                coldDownTimeCounter -= Time.deltaTime;
+
+            if((Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.J)) && coldDownTimeCounter <= 0)
+            {
+                coldDownTimeCounter = shootColdDown;
+                GameObject b = Instantiate(bullet, transform.position, Quaternion.identity);
+                b.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed, 0);
+            }
+        }
 
         private void FixedUpdate()
         {
