@@ -119,4 +119,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/huatuo/mafeisan/huatuo_mafeisan_1.unity
     guid: 03a3b2b5fc085a942b5d7047d38f385a
+  - enabled: 1
+    path: Assets/PuYunPing'sGame2/Scene/Game2.unity
+    guid: 8ef4fa3fa4ba9e94cbc9bc20ba3f86c8
+  - enabled: 1
+    path: Assets/PuYunPing'sGame2/Scene/Game2Teach1.unity
+    guid: 3474993764b593b4a8c7dc3575a6ed13
   m_configObjects: {}
