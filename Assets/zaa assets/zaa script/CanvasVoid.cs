@@ -2,23 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CanvasVoid : MonoBehaviour
+namespace zaaPro
 {
-    // Start is called before the first frame update
-    public static CanvasVoid instance;
-   
-    void Awake()
+    public class CanvasVoid : MonoBehaviour
     {
-        if(instance==null)
+        // Start is called before the first frame update
+        public static CanvasVoid instance;
+
+        void Awake()
         {
-            instance = this;
+            if (instance == null)
+            {
+                instance = this;
+            }
+
         }
 
-    }
+        // Update is called once per frame
+        void Update()
+        {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }
     }
 }
