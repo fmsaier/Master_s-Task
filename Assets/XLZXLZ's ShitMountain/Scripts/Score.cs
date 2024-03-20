@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,6 +7,8 @@ namespace XLZXLZ
     public class Score : MonoBehaviour
     {
         public static Score instance;
+
+        public Action onEnd;
 
         public float downPerSec = 0.5f;
         public float currentScore = 10;
@@ -50,25 +53,29 @@ namespace XLZXLZ
         {
             if (!isStart)
                 return;
-            currentScore -= Time.deltaTime * downPerSec;
-            scoreSlider.value = Mathf.Lerp(scoreSlider.value, currentScore / targetScore, Time.deltaTime);
 
-            if (currentScore >= targetScore)
+            if (currentScore >= targetScore - 1)
                 Win();
 
             if (currentScore <= 0)
                 Lose();
+
+            currentScore -= Time.deltaTime * downPerSec;
+            scoreSlider.value = Mathf.Lerp(scoreSlider.value, currentScore / targetScore, Time.deltaTime);
         }
 
         private void Win()
         {
-            Time.timeScale = 0;
+            onEnd?.Invoke();
+            isStart = false;
             winPannel.SetActive(true);
+
         }
 
         private void Lose()
         {
-            Time.timeScale = 0;
+            onEnd?.Invoke();
+            isStart = false;
             losePannel.SetActive(true);
         }
     }

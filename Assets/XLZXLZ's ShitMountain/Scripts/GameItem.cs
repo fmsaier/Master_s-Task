@@ -25,13 +25,19 @@ namespace XLZXLZ
                 .Append(transform.DOScale(Vector3.zero, .5f).SetEase(Ease.OutQuad))
                 .OnComplete(() => Destroy(gameObject));
 
-
+            Score.instance.onEnd += OnEnd;
 
             // 将按钮点击事件绑定到OnClick方法
             button = GetComponent<Button>();
             button.onClick.AddListener(OnClick);
 
             rotateSpeed = Random.Range(15, 60);
+        }
+
+        private void OnEnd()
+        {
+            Destroy(gameObject);
+            Instantiate(particle, transform.position, particle.transform.rotation);
         }
 
         private void OnClick()
@@ -49,9 +55,9 @@ namespace XLZXLZ
             transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
         }
 
-        public void Debug()
+        private void OnDestroy()
         {
-            print("!");
+            Score.instance.onEnd -= OnEnd;
         }
     }
 }
