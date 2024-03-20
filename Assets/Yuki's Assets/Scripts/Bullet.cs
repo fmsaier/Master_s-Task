@@ -28,6 +28,14 @@ namespace Yuki
         {
             rb.velocity = Vector2.zero;
             animator.SetTrigger("hit");
+
+            Enemy enemy = collision.GetComponent<Enemy>();
+            enemy.hp--;
+            if (enemy.hp <= 0)
+            {
+                Destroy(collision.gameObject);
+                GameObject.Find("Player").GetComponent<PlayerController>().score += enemy.score;
+            }
         }
 
         public void DestroySelf() => Destroy(gameObject);

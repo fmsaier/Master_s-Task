@@ -21,7 +21,7 @@ namespace Yuki
         {
             yield return new WaitForSeconds(5);
 
-            for(int rng = Random.Range(1, 5); ; rng = Random.Range(1, 5))
+            for(int rng = Random.Range(1, 6); ; rng = Random.Range(1, 6))
             {
                 generatorFix = new Vector2(Random.Range(-generatorSize.x / 2, generatorSize.x / 2), Random.Range(-generatorSize.y / 2, generatorSize.y / 2));
 
