@@ -11,6 +11,7 @@ namespace Lio
         [Header("Set")]
         public float range;
         public float timeInterval;
+        public float life;
 
         private Animator ani;
         private Vector3 lastPoint;
@@ -23,6 +24,8 @@ namespace Lio
             lastPoint = transform.position;
             lastTime = Time.time;
             isDisapearing = false;
+
+            Destroy(gameObject, life);
         }
 
         // Update is called once per frame

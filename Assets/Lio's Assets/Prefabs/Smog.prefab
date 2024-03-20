@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 0.1
   timeInterval: 0.5
+  life: 10
 --- !u!50 &1420355544903439076
 Rigidbody2D:
   serializedVersion: 4
