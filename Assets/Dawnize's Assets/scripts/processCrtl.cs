@@ -4,22 +4,18 @@ using UnityEngine;
 namespace Dawnize{
 public class processCtrl : MonoBehaviour
 {
-public GameObject home;
 public GameObject cancerCeil;
 private Vector3 positionOfHome;
-float screenWidth;
-float screenHeight;
-Vector3 randomScreenPoint;
-Vector3 randomWorldPoint;
+Vector2 randomScreenPoint;
+Vector2 randomWorldPoint;
 Camera mainCamera;
 public int[] enemiesAcount;
 public float interval;
 
-private void Start() {
-    positionOfHome=home.transform.position;
-    screenWidth=Screen.width;
-    screenHeight=Screen.height;
+private void Awake() {
     mainCamera=Camera.main;
+    screenSize.ScreenWidth=Screen.width;
+    screenSize.ScreenHeight=Screen.height;
 }
 IEnumerator ProcessCtrl(){
     //开场介绍
@@ -35,7 +31,7 @@ IEnumerator ProcessCtrl(){
     //结束相关
 }
 void EnemyCreator(){
-    randomScreenPoint=new Vector3(Random.Range(screenWidth/2,screenWidth),Random.Range(0,screenHeight),0);
+    randomScreenPoint=new Vector2(Random.Range(screenSize.ScreenWidth/2,screenSize.ScreenWidth),Random.Range(0,screenSize.ScreenHeight));
     randomWorldPoint=mainCamera.ScreenToWorldPoint(randomScreenPoint);
     GameObject temp=Instantiate(cancerCeil,randomWorldPoint,Quaternion.identity);
     dataRecound.cancerCeils.Add(temp);

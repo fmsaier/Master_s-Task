@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class medicineEmitter : MonoBehaviour
+namespace Dawnize{
+    public class medicineEmitter : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,4 +15,5 @@ public class medicineEmitter : MonoBehaviour
     {
         
     }
+}
 }
