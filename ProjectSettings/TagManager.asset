@@ -49,6 +49,7 @@ TagManager:
   - Snake
   - Lingwu
   - Ground
+  - medicine
   layers:
   - Default
   - TransparentFX

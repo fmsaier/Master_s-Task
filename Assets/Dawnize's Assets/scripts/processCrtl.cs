@@ -29,20 +29,17 @@ IEnumerator ProcessCtrl(){
             EnemyCreator();
             yield return new WaitForSeconds(interval);
         }
-        yield return new WaitUntil(()=>enemyRecond.cancerCeils.Count==0);
+        yield return new WaitUntil(()=>dataRecound.cancerCeils.Count==0);
         //每波次结束加科普        
     }
     //结束相关
 }
 void EnemyCreator(){
-    randomScreenPoint=new Vector3(Random.Range(0,screenWidth),Random.Range(0,screenHeight),0);
+    randomScreenPoint=new Vector3(Random.Range(screenWidth/2,screenWidth),Random.Range(0,screenHeight),0);
     randomWorldPoint=mainCamera.ScreenToWorldPoint(randomScreenPoint);
     GameObject temp=Instantiate(cancerCeil,randomWorldPoint,Quaternion.identity);
-    enemyRecond.cancerCeils.Add(temp);
+    dataRecound.cancerCeils.Add(temp);
 }
 }
-
-
-
 }
 
