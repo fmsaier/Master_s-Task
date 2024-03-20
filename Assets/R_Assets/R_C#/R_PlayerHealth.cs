@@ -15,8 +15,8 @@ public class R_PlayerHealth : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerAim = GetComponent<Animator>();
-        //HealthBar.healthMax = health;
-        //HealthBar.healthPresent = health;
+        R_HealthBar.healthMax = health;
+        R_HealthBar.healthPresent = health;
     }
     private void Update()
     {
@@ -33,13 +33,13 @@ public class R_PlayerHealth : MonoBehaviour
             P1 = GetComponent<R_Player>();
             P1.isDeath = true;
         }
-        //if (health > HealthBar.healthMax)
+        if (health > R_HealthBar.healthMax)
         {
-           // health = HealthBar.healthMax;
-           // HealthBar.healthPresent = health;
+            health = R_HealthBar.healthMax;
+            R_HealthBar.healthPresent = health;
 
         }
-        //if (health < HealthBar.healthMax * 0.3f && !isStruggle)
+        if (health < R_HealthBar.healthMax * 0.3f && !isStruggle)
         {
             //soundsManager.Instance.PlayMusic("Struggle");
             isStruggle = true;
@@ -52,20 +52,17 @@ public class R_PlayerHealth : MonoBehaviour
         P1 = GetComponent<R_Player>();
         if (hitCD == 0)
         {
-            if (!P1.isDash)
+            hitCD = 1f;
+            health -= damage;
+            R_HealthBar.healthPresent = health;
+            if (health <= 0)
             {
-                hitCD = 1f;
-                health -= damage;
-               // HealthBar.healthPresent = health;
-                if (health <= 0)
-                {
-                    playerAim.SetBool("Death", true);
-                    Invoke(nameof(Death), 2f);
-                }
-                else if (health > 0)
-                {
-                    playerAim.SetTrigger("isHit");
-                }
+                playerAim.SetBool("Death", true);
+                Invoke(nameof(Death), 2f);
+            }
+            else if (health > 0)
+            {
+                playerAim.SetTrigger("isHit");
             }
 
         }
@@ -74,8 +71,6 @@ public class R_PlayerHealth : MonoBehaviour
     void Death()
     {
         Destroy(gameObject);
-        SceneManager.LoadScene(7);
-
     }
 
 }
