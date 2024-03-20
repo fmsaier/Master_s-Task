@@ -19,7 +19,7 @@ namespace Yuki
 
         private IEnumerator RegularDestruction()
         {
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(5);
 
             Destroy(gameObject);
         }
