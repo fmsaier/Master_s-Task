@@ -50,6 +50,7 @@ TagManager:
   - Lingwu
   - Ground
   - medicine
+  - Enemy
   layers:
   - Default
   - TransparentFX

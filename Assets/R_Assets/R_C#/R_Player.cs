@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class R_Player : MonoBehaviour
 {
+    public GameObject Bullet;
+    [SerializeField] private float shootSpeed;
+
+    float ATKCD = 0.5f;
+
     public float runSpeed;
     public float jumpSpeed;
     public float jumpChance;
@@ -11,16 +16,12 @@ public class R_Player : MonoBehaviour
     private BoxCollider2D myFeet;
     private Animator myAnim;
     private TrailRenderer myTrail;
-    private float DashCD = 3f;
     private bool isGround;
 
-    public float Skill1CD = 8f;
-    public bool haveSkill;
 
 
 
     private bool isOneSide;
-    public bool isDash = false;
 
     public bool isDeath = false;
     void Start()
@@ -150,11 +151,24 @@ public class R_Player : MonoBehaviour
 
     void Attack()
     {
-
+        ATKCD -= Time.deltaTime;
+        if (ATKCD <= 0f)
+        {
+            ATKCD = 0f;
+        }
         if (Input.GetKeyDown(KeyCode.J))
         {
             myAnim.SetTrigger("Attack");
             myAnim.SetBool("isAttack", true);
+            if(ATKCD <= 0f)
+            {
+                GameObject b;
+                b = Instantiate(Bullet, gameObject.transform.position, Quaternion.identity);
+                Rigidbody2D br;
+                br = b.GetComponent<Rigidbody2D>();
+                br.velocity = transform.rotation * new Vector3(shootSpeed, 0, 0);
+                ATKCD = 0.5f;
+            }
 
         }
     }
