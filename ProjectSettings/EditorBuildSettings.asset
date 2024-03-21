@@ -125,4 +125,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/PuYunPing'sGame2/Scene/Game2TeachPYP.unity
     guid: 3474993764b593b4a8c7dc3575a6ed13
+  - enabled: 1
+    path: Assets/zaa assets/zaa scene/Guangyuan1.unity
+    guid: f39f2180c30c2554aa61a6338675cab3
   m_configObjects: {}
