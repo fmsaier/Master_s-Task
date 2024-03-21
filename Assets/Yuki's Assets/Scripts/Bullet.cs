@@ -34,7 +34,10 @@ namespace Yuki
             if (enemy.hp <= 0)
             {
                 Destroy(collision.gameObject);
-                GameObject.Find("Player").GetComponent<PlayerController>().score += enemy.score;
+                PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
+                if (player.score % 20 + enemy.score >= 20)
+                    player.specialShotTimes++;
+                player.score += enemy.score;
             }
         }
 
