@@ -12,13 +12,19 @@ public class PlayerGame2PYP : MonoBehaviour
     private Animator myAnim;
     public float WudiTime=0f;
 
+    public AudioSource audioSource;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector3(speed, rb.velocity.y);
         Huan = FindObjectOfType<HuanPYP>();
+
         Health= FindObjectOfType<HealthPYP>();
+
         myAnim = GetComponent<Animator>();
+
+        audioSource = transform.GetChild(2).GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -46,6 +52,10 @@ public class PlayerGame2PYP : MonoBehaviour
         {
             if (collision.CompareTag("Upwall"))
             {
+                if (audioSource != null)
+                {
+                    audioSource.Play();
+                }
                 Health.HealthJiLu();
                 myAnim.SetTrigger("Hurt");
                 health -= 1;
