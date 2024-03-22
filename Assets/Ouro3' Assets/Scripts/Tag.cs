@@ -15,12 +15,18 @@ namespace Ouro3
         public Tags Mytag;
         public int Num = 4;
         public bool Restart;
+        public int Health = 10;
+        public int Defence;
+        public Sprite[] Sprites;
+        private SpriteRenderer Myrenderer;
         private int Count;
+
 
         // Start is called before the first frame update
         void Start()
         {
             Restart = true;
+            Myrenderer = GetComponent<SpriteRenderer>();
         }
 
         // Update is called once per frame
@@ -28,12 +34,12 @@ namespace Ouro3
         {
             if (Restart)
             {
-                RamdomDicider();
+                RandomDicider();
                 Restart = false;
             }
         }
 
-        private void RamdomDicider()
+        private void RandomDicider()
         {
             Count = Random.Range(0,Num-1);
             if(Count ==  0 )
@@ -55,6 +61,7 @@ namespace Ouro3
             {
                 Mytag = Tags.Dcl;
             }
+            Myrenderer.sprite = Sprites[Count];
         }
     }
 }
