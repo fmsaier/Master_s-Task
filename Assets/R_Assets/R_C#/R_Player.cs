@@ -83,9 +83,8 @@ public class R_Player : MonoBehaviour
         {
             if (myRb2D.velocity.y <= 0.1f)
             {
-                jumpChance = 2;
+                jumpChance = 1;
                 myAnim.SetBool("Jump", false);
-                myAnim.SetBool("HighJump", false);
                 myAnim.SetBool("Fall", false);
                 myAnim.SetBool("Stay", true);
             }
@@ -107,20 +106,10 @@ public class R_Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            if (jumpChance == 2)
+             if (jumpChance == 1)
             {
                 myAnim.SetBool("Stay", false);
                 myAnim.SetBool("Jump", true);
-                isGround = false;
-                jumpChance--;
-                Vector2 jumpVel = new Vector2(0.0f, jumpSpeed);
-                myRb2D.velocity = jumpVel * Vector2.up;
-                //soundsManager.Instance.SfxPlay("Jump");
-            }
-            else if (jumpChance == 1)
-            {
-                myAnim.SetBool("Jump", true);
-                myAnim.SetBool("HighJump", true);
                 jumpChance--;
                 Vector2 jumpVel = new Vector2(0.0f, jumpSpeed);
                 myRb2D.velocity = jumpVel * Vector2.up;
@@ -132,7 +121,6 @@ public class R_Player : MonoBehaviour
         {
             if (myRb2D.velocity.y <= 0.0f)
             {
-                myAnim.SetBool("HighJump", false);
                 myAnim.SetBool("Jump", false);
                 myAnim.SetBool("Fall", true);
             }

@@ -57,7 +57,7 @@ public class R_PlayerHealth : MonoBehaviour
             R_HealthBar.healthPresent = health;
             if (health <= 0)
             {
-                playerAim.SetBool("Death", true);
+                playerAim.SetTrigger("Death");
                 Invoke(nameof(Death), 2f);
             }
             else if (health > 0)

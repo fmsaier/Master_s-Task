@@ -58,6 +58,8 @@ TagManager:
   - FPlayer
   - FEnemy
   - FAttacker
+  - Bullet
+  - BillBoard
   layers:
   - Default
   - TransparentFX
