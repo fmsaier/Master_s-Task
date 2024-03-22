@@ -5,7 +5,7 @@ namespace Dawnize{
 public class enemy : MonoBehaviour
 {//消灭细胞的函数
 public void destroyCancerCeil(){
-    enemyRecond.cancerCeils.Remove(gameObject);
+    dataRecound.cancerCeils.Remove(gameObject);
     Destroy(gameObject);
    }
    private void Start() {

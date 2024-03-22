@@ -13,6 +13,11 @@ namespace XLZXLZ
         [SerializeField]
         private Transform boundaryTopLeft, boundaryBottomRight;
 
+        private void Start()
+        {
+            Score.instance.onEnd += (() => { StopAllCoroutines(); });
+        }
+
         public void Trigger()
         {
             StartCoroutine(GenerateItem());

@@ -49,6 +49,12 @@ TagManager:
   - Snake
   - Lingwu
   - Ground
+  - medicine
+  - Enemy
+  - citywall
+  - cw
+  - virus
+  - deadline
   layers:
   - Default
   - TransparentFX
