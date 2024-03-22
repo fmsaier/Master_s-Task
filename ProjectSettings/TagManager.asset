@@ -55,6 +55,9 @@ TagManager:
   - cw
   - virus
   - deadline
+  - FPlayer
+  - FEnemy
+  - FAttacker
   layers:
   - Default
   - TransparentFX
