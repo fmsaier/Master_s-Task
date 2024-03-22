@@ -58,7 +58,7 @@ namespace zaaPro
                 animator.SetBool("isRight", false);
               
             }
-            if(Input.GetMouseButton (0) && Time.timeScale != 0 && !VirusControl.instance.isTime)
+            if(Input.GetMouseButtonDown(0) && Time.timeScale != 0 && !VirusControl.instance.isTime)
             {
                 GameObject arrow1=Instantiate(arrow, target.position, Quaternion.identity);
                 Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

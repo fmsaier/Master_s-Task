@@ -265,8 +265,18 @@ namespace zaaPro
             Animator animator = CanvasVoid1.instance.GetComponent<Animator>();
             animator.SetTrigger("isPanda");
             CanvasVoid2.instance.transform.gameObject.SetActive(false);
-            BackControl.instance.transform.gameObject.SetActive(false);
-
+            for(int i=0;i<BackControl.instance.transform.childCount -1;i++)
+            {
+                BackControl.instance.transform.GetChild(i).gameObject.SetActive(false);
+            }
+            if(!Man.instance.isDie && VirusControl.instance.isTime)
+            {
+                BackControl.instance.transform.GetChild(8).gameObject.SetActive(true);
+            }
+            if (Man.instance.isDie && !VirusControl.instance.isTime)
+            {
+                BackControl.instance.transform.GetChild(7).gameObject.SetActive(true);
+            }
             yield return new WaitForSecondsRealtime(2.5f);
             SceneManager.LoadSceneAsync("Guangyuan1");
 
