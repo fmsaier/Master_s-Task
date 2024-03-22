@@ -15,11 +15,11 @@ private void Start() {
     mainCamera=Camera.main;
 }
 private void Update() {
-    // timeRecound+=Time.deltaTime;
-    // if(timeRecound>=produceInterval){
-    //     produceMedicine();
-    //     timeRecound=0;
-    // }
+    timeRecound+=Time.deltaTime;
+    if(timeRecound>=produceInterval){
+        produceMedicine();
+        timeRecound=0;
+    }
 }
 void produceMedicine(){
     int a=Random.Range(0,medicine.Length-1);

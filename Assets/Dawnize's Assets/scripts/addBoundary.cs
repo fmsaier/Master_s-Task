@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Dawnize;
 using Unity.Mathematics;
 using UnityEngine;
-
+namespace Dawnize{
 public class addBoundary : MonoBehaviour
 {
     public GameObject leftBoundary;
@@ -21,3 +21,5 @@ public class addBoundary : MonoBehaviour
         Instantiate(upDownBoundary,downPosition,quaternion.identity);
     }
 }
+}
+

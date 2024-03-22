@@ -16,11 +16,10 @@ public class player : MonoBehaviour
         xMax=rightUp.x;
         yMax=rightUp.y;
         yMin=leftDown.y;
-        Debug.Log(transform.position);
-        Debug.Log(rightUp);
     }
    void FixedUpdate() {
         move();
+        Debug.Log(dataRecound.medicineAcount);
     }
     void move(){
         transform.Translate(new Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0)*speed);
@@ -35,9 +34,14 @@ public class player : MonoBehaviour
 
     //不同medicine的效果
     void getMedicine(medicine.medicineKind kind){
-        // switch(kind){
-        //     case medicine.medicineKind.:
-        // }
+        switch(kind){
+            case medicine.medicineKind.normal:
+                dataRecound.medicineAcount++;
+                break;
+            case medicine.medicineKind.unnormal:
+                dataRecound.medicineAcount+=2;
+                break;    
+        }
         
     }
 }

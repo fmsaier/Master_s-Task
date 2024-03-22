@@ -1,15 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 namespace Dawnize{
 public class enemy : MonoBehaviour
-{//消灭细胞的函数
+{
+    private float timer;
+    public GameObject fenlie;
+    public float fenlieInterval;
+    //消灭细胞的函数
 public void destroyCancerCeil(){
-    dataRecound.cancerCeils.Remove(gameObject);
-    Destroy(gameObject);
+    if(dataRecound.medicineAcount>0){
+        dataRecound.medicineAcount--;
+        dataRecound.ceilAcount--;
+        Destroy(gameObject);
+    }
+
    }
    private void Start() {
-    //ceil生成动画
+    timer=0;
+   }
+   private void Update() {
+    timer+=Time.deltaTime;
+    if(timer>=fenlieInterval){
+        Instantiate(fenlie,transform.position,quaternion.identity);
+        dataRecound.ceilAcount++;
+        timer=0;
+    }
    }
 }
+
 }
