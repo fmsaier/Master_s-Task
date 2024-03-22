@@ -272,7 +272,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u8FD9\u662F\u4E00\u4E2A\u574F\u4E60\u60EF\u7684\u56FE\u6807"
+  m_Text: "\u5438\u70DF\u662F\u80BA\u764C\u7684\u7F6A\u9B41\u7978\u9996\u4E4B\u4E00"
 --- !u!222 &3320617
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1107,6 +1107,8 @@ MonoBehaviour:
   Items:
   - {fileID: 5914344945597648713, guid: 769b1fee35df924499ac5dc7bc52a0f7, type: 3}
   - {fileID: 5914344945597648713, guid: fee130c2e4f24f743a13fe947b769c98, type: 3}
+  - {fileID: 5914344945597648713, guid: 7b933a82a933df14e9261e3e6904938f, type: 3}
+  - {fileID: 5914344945597648713, guid: 16978809eeec6d4488172785d23ad269, type: 3}
   minDelay: 0.2
   maxDelay: 0.4
   boundaryTopLeft: {fileID: 1921835446}
@@ -1177,7 +1179,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -232, y: 375}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &449611126
 MonoBehaviour:
@@ -1192,14 +1194,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.42452818, b: 0.43333414, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 11c1747754dc7f34a8119d007fc2af4b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1362,7 +1364,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -232, y: 212}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &620485703
 MonoBehaviour:
@@ -1384,7 +1386,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 22685ed349fa98f45b622bcaf7800a62, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1437,7 +1439,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -232, y: 375}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &646294728
 MonoBehaviour:
@@ -1459,7 +1461,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a37eeeca7e73afd40b323f5b9f7e5d27, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3829,7 +3831,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u8FD9\u662F\u4E00\u4E2A\u597D\u4E60\u60EF\u7684\u56FE\u6807"
+  m_Text: "\u517B\u6210\u5065\u5EB7\u996E\u98DF\u4E60\u60EF"
 --- !u!222 &1738812149
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3908,7 +3910,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u8FD9\u662F\u4E00\u4E2A\u597D\u4E60\u60EF\u7684\u56FE\u6807"
+  m_Text: "\u5B9A\u671F\u8FDB\u884C\u4F53\u68C0"
 --- !u!222 &1825331252
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3952,7 +3954,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -232, y: 212}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1901591645
 MonoBehaviour:
@@ -3967,14 +3969,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.42452818, b: 0.43333414, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: b219daf0b41092c46ba87b413a47b362, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4322,7 +4324,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u8FD9\u662F\u4E00\u4E2A\u574F\u4E60\u60EF\u7684\u56FE\u6807"
+  m_Text: "\u8FC7\u91CF\u996E\u9152\u5BF9\u809D\u529F\u80FD\u9020\u6210\u5DE8\u5927\u8D1F\u62C5"
 --- !u!222 &2125166245
 CanvasRenderer:
   m_ObjectHideFlags: 0
