@@ -36,13 +36,17 @@ public class PlayerStats : MonoBehaviour
     public void Heal(float health)
     {
         this.health += health;
+        FAudioManager.Instance.PlayEffect(FAudioManager.Instance.heal);
         ClampHealth();
     }
 
     public void TakeDamage(float dmg)
     {
         health -= dmg;
+        FAudioManager.Instance.PlayEffect(FAudioManager.Instance.takeDamage);
         ClampHealth();
+        if (health <= 0)
+            GetComponent<FPlayerController>().Die();
     }
 
     public void AddHealth()

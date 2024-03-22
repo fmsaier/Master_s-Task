@@ -42,6 +42,7 @@ public class FAi : MonoBehaviour
     public void TakeDamage(float number)
     {
         hp -= number;
+        FAudioManager.Instance.PlayEffect(FAudioManager.Instance.enemyTakeDamage);
         StartCoroutine(ChangeColor());
         if (hp < 0)
             Die();

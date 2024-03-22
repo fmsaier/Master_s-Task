@@ -5,7 +5,7 @@ using UnityEngine;
 public class FPlayerController : MonoBehaviour
 {
     bool isJumping = false;
-    int pillCount = 100;
+    int pillCount = 0;
     float jumpTimer = 0;
     float fallTimer = 0;
     float shootTimer = 0;
@@ -36,6 +36,7 @@ public class FPlayerController : MonoBehaviour
     {
         if (jumpTimer <= 0 && !isJumping)
         {
+            FAudioManager.Instance.PlayEffect(FAudioManager.Instance.jump);
             StartCoroutine(Jump());
         }
     }
@@ -44,6 +45,7 @@ public class FPlayerController : MonoBehaviour
     {
         if (fallTimer <= 0 && !isJumping)
         {
+            FAudioManager.Instance.PlayEffect(FAudioManager.Instance.fall);
             StartCoroutine(Fall());
         }
     }
@@ -80,6 +82,7 @@ public class FPlayerController : MonoBehaviour
     {
         if (pillCount > 0 && shootTimer <= 0)
         {
+            FAudioManager.Instance.PlayEffect(FAudioManager.Instance.shoot);
             shootTimer = 0.5f;
             pillCount--;
             FResourceManager.Instance.PillCount.text = pillCount.ToString();
@@ -92,5 +95,13 @@ public class FPlayerController : MonoBehaviour
     {
         pillCount += number;
         FResourceManager.Instance.PillCount.text = pillCount.ToString();
+    }
+
+    public void Die()
+    {
+        FResourceManager.Instance.FinalPanel.SetActive(true);
+        FResourceManager.Instance.FinalText.text =
+            "非常遗憾你失败了，但是你一定学到了一些预防癌症的知识，在以后的生活中一定要保持健康哦！";
+        Time.timeScale = 0;
     }
 }

@@ -128,4 +128,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/zaa assets/zaa scene/guangyuan1.unity
     guid: f39f2180c30c2554aa61a6338675cab3
+  - enabled: 1
+    path: Assets/Fucking Jump/Fucking Jump.unity
+    guid: f4ef7b5c1c97d0d4294b8e605e81d6cc
   m_configObjects: {}

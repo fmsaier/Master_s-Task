@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FGangMenAi : MonoBehaviour
+public class FGangMenAi : FAi
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Die()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        FResourceManager.Instance.FeiAiGe.SetActive(true);
+        Destroy(gameObject);
     }
 }

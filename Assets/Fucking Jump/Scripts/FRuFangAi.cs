@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FRuFangAi : MonoBehaviour
+public class FRuFangAi : FAi
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Die()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        FResourceManager.Instance.Title.text = "肛门癌";
+        FGameManager.Instance.StartCoroutine(
+            FGameManager.Instance.ChangeInfo(FResourceManager.Instance.Info
+            , "现在来击败肛门癌吧，它是泸州市发病率第二高的癌症哦！", 1));
+        FResourceManager.Instance.GangMenAiGe.SetActive(true);
+        Destroy(gameObject);
     }
 }
