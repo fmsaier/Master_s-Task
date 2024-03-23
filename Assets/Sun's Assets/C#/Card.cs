@@ -13,10 +13,20 @@ namespace Sun
         void Start()
         {
             cardState = CardState.Down;
+            gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         }
 
         private void OnMouseUp()
         {
+            if (cardState.Equals(CardState.On)||cardState.Equals(CardState.Couple))
+            {
+                return;
+            }
+
+            if (gameManager.ReadyToCompareCards)
+            {
+                return;
+            }
             OpenCard();
             gameManager.AddCardInCardComparision(this);
             gameManager.CompareCardInList();
