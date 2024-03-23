@@ -5,6 +5,7 @@ namespace Dawnize{
     public class uiCtrl : MonoBehaviour
 {
 public GameObject another; 
+public GameObject MedAccoundUI;
 public void setSelfUnvisual(){
     gameObject.SetActive(false);
 }
@@ -13,6 +14,7 @@ public void setAnotherActive(){
 } 
 public void timeScaleBack(){
     Time.timeScale=1;
+    MedAccoundUI.SetActive(true);
 }
 public void isTutorialOver()
 {

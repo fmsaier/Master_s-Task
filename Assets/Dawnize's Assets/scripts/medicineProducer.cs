@@ -22,7 +22,7 @@ private void Update() {
     }
 }
 void produceMedicine(){
-    int a=Random.Range(0,medicine.Length-1);
+    int a=Random.Range(0,medicine.Length);
     randomScreenPoint=new Vector2(Random.Range(0,screenSize.ScreenWidth/2),Random.Range(0,screenSize.ScreenHeight));
     randomWorldPoint=mainCamera.ScreenToWorldPoint(randomScreenPoint);
     GameObject temp=Instantiate(medicine[a],randomWorldPoint,Quaternion.identity);

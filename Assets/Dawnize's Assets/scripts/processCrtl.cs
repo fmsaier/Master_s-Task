@@ -33,7 +33,14 @@ IEnumerator ceilCtrl(){
         yield return new WaitUntil(()=>dataRecound.ceilAcount==0);
         //每波次结束加科普        
     }
+    Debug.Log("成功");
     //结束相关
+}
+private void Update() {
+    if(dataRecound.ceilAcount>=20){
+        //失败
+        Debug.Log("失败");
+    }
 }
 void EnemyCreator(){
     randomScreenPoint=new Vector2(Random.Range(screenSize.ScreenWidth/2,screenSize.ScreenWidth),Random.Range(0,screenSize.ScreenHeight));
