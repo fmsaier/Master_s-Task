@@ -49,6 +49,8 @@ TagManager:
   - Snake
   - Lingwu
   - Ground
+  - EnemyAttack
+  - Bullet
   - medicine
   - Enemy
   - citywall
@@ -60,6 +62,9 @@ TagManager:
   - FAttacker
   - Bullet
   - BillBoard
+  - Sign
+  - PlayerAttack
+  - EnemyFarAttack
   layers:
   - Default
   - TransparentFX
@@ -69,7 +74,7 @@ TagManager:
   - UI
   - Enemy
   - Ground
-  - 
+  - Bullet
   - 
   - 
   - 
