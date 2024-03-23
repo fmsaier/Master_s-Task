@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class R_Player : MonoBehaviour
 {
+    [Header("摇杆的杆子")]
+    public GameObject Handle;
+
+
     public GameObject Bullet;
     [SerializeField] private float shootSpeed;
 
@@ -35,12 +39,18 @@ public class R_Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ATKCD -= Time.deltaTime;
+        if (ATKCD <= 0f)
+        {
+            ATKCD = 0f;
+        }
         if (!isDeath)
         {
-            Run();
-            Attack();
-            Filp();
-            Jump();
+            Movement();
+            //Run();
+            //Attack();
+            //Filp();
+            //Jump();
             CheckGround();
             oneSideCheck();
         }
@@ -102,11 +112,11 @@ public class R_Player : MonoBehaviour
         //soundsManager.Instance.SfxPlay("Run");
     }
 
-    void Jump()
+    public void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (!isDeath)
         {
-             if (jumpChance == 1)
+            if (jumpChance == 1)
             {
                 myAnim.SetBool("Stay", false);
                 myAnim.SetBool("Jump", true);
@@ -137,25 +147,21 @@ public class R_Player : MonoBehaviour
 
     }
 
-    void Attack()
+    public void Attack()
     {
-        ATKCD -= Time.deltaTime;
-        if (ATKCD <= 0f)
-        {
-            ATKCD = 0f;
-        }
-        if (Input.GetKeyDown(KeyCode.J))
+        
+        if (!isDeath)
         {
             myAnim.SetTrigger("Attack");
             myAnim.SetBool("isAttack", true);
-            if(ATKCD <= 0f)
+            if (ATKCD <= 0f)
             {
                 GameObject b;
                 b = Instantiate(Bullet, gameObject.transform.position, Quaternion.identity);
                 Rigidbody2D br;
                 br = b.GetComponent<Rigidbody2D>();
                 br.velocity = transform.rotation * new Vector3(shootSpeed, 0, 0);
-                ATKCD = 0.5f;
+                ATKCD = 0.3f;
             }
 
         }
@@ -182,5 +188,38 @@ public class R_Player : MonoBehaviour
             gameObject.layer = LayerMask.NameToLayer("Player");
         }
 
+    }
+
+    void Movement()
+    {
+        if (Handle != null)
+        {
+            /* X方向 */
+            float posX = Handle.transform.localPosition.x; //获取 Handle 对象的 X 坐标值。
+            float horizontal_move = posX / 128f; //模拟 Input.GetAxis 的返回值。
+            float faced_x;
+            if (posX > 0)
+            {
+                faced_x = 1; //模拟 Input.GetAxisRaw 返回 1 。
+                //Debug.Log("1");
+            }
+            else if (posX < 0)
+            {
+                faced_x = -1; //模拟 Input.GetAxisRaw 返回 -1 。
+                //Debug.Log("-1");
+            }
+            else
+            {
+                faced_x = 0; //模拟 Input.GetAxisRaw 返回 0 。
+            }
+            //Debug.Log(horizontal_move);
+            myRb2D.velocity = new Vector2(horizontal_move * runSpeed,myRb2D.velocity.y); //X方向移动。
+            bool playerXAxisSpeed = Mathf.Abs(myRb2D.velocity.x) > Mathf.Epsilon;
+            myAnim.SetBool("Run", playerXAxisSpeed);
+            if (faced_x != 0) //角色面向，即X方向旋转物体的代码。
+            {
+                transform.localScale = new Vector3(faced_x, 1, 1);
+            }
+        }
     }
 }
