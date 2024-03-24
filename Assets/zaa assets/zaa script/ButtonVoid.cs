@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using zaaPRo;
 using UnityEngine.SceneManagement;
 
+
 namespace zaaPro
 {
     public class Buttonvoid : MonoBehaviour
@@ -40,6 +41,8 @@ namespace zaaPro
         public bool isKnow1, isKnow2, isKnow3;
 
         public Button button;
+
+        private GameObject childObject;
 
         public static Buttonvoid instance;
 
@@ -193,6 +196,20 @@ namespace zaaPro
 
         public void Next()
         {
+            if(VirusControl.instance.isTime)
+            {
+                childObject = BackControl.instance.transform.GetChild(9).gameObject;
+            }
+            if (!VirusControl.instance.isTime)
+            {
+                childObject = BackControl.instance.transform.GetChild(8).gameObject;
+            }
+
+            if(childObject!=null)
+            {
+                childObject.layer = 10;
+            }
+          
             StartCoroutine(ChangeScene());
         }
 
@@ -242,7 +259,7 @@ namespace zaaPro
                 BackControl.instance.transform.GetChild(i).gameObject.SetActive(false);
 
             }
-            for (int i = 4; i <= 7; i++)
+            for (int i = 4; i <= 8; i++)
             {
                 BackControl.instance.transform.GetChild(i).gameObject.SetActive(true);
 
@@ -269,14 +286,7 @@ namespace zaaPro
             {
                 BackControl.instance.transform.GetChild(i).gameObject.SetActive(false);
             }
-            if(!Man.instance.isDie && VirusControl.instance.isTime)
-            {
-                BackControl.instance.transform.GetChild(8).gameObject.SetActive(true);
-            }
-            if (Man.instance.isDie && !VirusControl.instance.isTime)
-            {
-                BackControl.instance.transform.GetChild(7).gameObject.SetActive(true);
-            }
+        
             yield return new WaitForSecondsRealtime(2.5f);
             SceneManager.LoadSceneAsync("Guangyuan1");
 
