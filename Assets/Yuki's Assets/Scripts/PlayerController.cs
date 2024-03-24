@@ -6,6 +6,10 @@ namespace Yuki
 {
     public class PlayerController : MonoBehaviour
     {
+        public GameObject handle;
+        public bool isShootPressed;
+        public bool isSkillPressed;
+
         [Header("本体")]
         private float inputX, inputY;
         public float moveSpeed;
@@ -27,38 +31,41 @@ namespace Yuki
                 coldDownTimeCounter -= Time.deltaTime;
 
             /*特殊射击*/
-            if ((Input.GetKey(KeyCode.X) || Input.GetKey(KeyCode.K)) && coldDownTimeCounter <= 0 && specialShotTimes > 0)
+            if ((Input.GetKey(KeyCode.X) || Input.GetKey(KeyCode.K) || isSkillPressed) && coldDownTimeCounter <= 0 && specialShotTimes > 0)
             {
                 coldDownTimeCounter = shootColdDown;
                 specialShotTimes--;
                 for (int i = -4; i <= 4; i++)
                 {
-                    GameObject b = Instantiate(bullet, transform.position, Quaternion.identity);
+                    GameObject b = Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, inputY * angleFix + i * 7.5f + 5));
                     b.GetComponent<Rigidbody2D>().velocity = Quaternion.Euler(0, 0, inputY * angleFix + i * 7.5f) * new Vector2(bulletSpeed + inputX * speedFix, 0);
                 }
             }
 
             /*普通射击*/
-            if ((Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.J)) && coldDownTimeCounter <= 0)
+            if ((Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.J) || isShootPressed) && coldDownTimeCounter <= 0)
             {
                 coldDownTimeCounter = shootColdDown;
-                GameObject b = Instantiate(bullet, transform.position, Quaternion.identity);
+                
+                GameObject b = Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, inputY * angleFix + 5));
                 b.GetComponent<Rigidbody2D>().velocity = Quaternion.Euler(0, 0, inputY * angleFix) * new Vector2(bulletSpeed + inputX * speedFix, 0);
             }
+
+            isShootPressed = false;
+            isSkillPressed = false;
         }
 
         private void FixedUpdate()
         {
-            inputX = Input.GetAxis("Horizontal");
-            inputY = Input.GetAxis("Vertical");
+            inputX = Input.GetAxis("Horizontal") + handle.transform.localPosition.x / 128;
+            inputY = Input.GetAxis("Vertical") + handle.transform.localPosition.y / 128;
 
-            /*减速*/
-            if(Input.GetKey(KeyCode.LeftShift))
-                transform.Translate(new Vector2(inputX * moveSpeed/2 * Time.deltaTime, inputY * moveSpeed/2 * Time.deltaTime), relativeTo: Space.World);
-            else
-                transform.Translate(new Vector2(inputX * moveSpeed * Time.deltaTime, inputY * moveSpeed * Time.deltaTime), relativeTo: Space.World);
-
+            transform.Translate(new Vector2(inputX * moveSpeed * Time.deltaTime, inputY * moveSpeed * Time.deltaTime), relativeTo: Space.World);
         }
+
+        public void Shoot() => isShootPressed = true;
+
+        public void Skill() => isSkillPressed = true;
     }
 }
 

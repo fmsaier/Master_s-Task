@@ -25,7 +25,7 @@ public class ToPYP : MonoBehaviour
 
     public void ToGame2()
     {
-        SceneManager.LoadScene("Game2");
+        SceneManager.LoadScene("Game2PYP");
     }
 
     public void ToGame3()

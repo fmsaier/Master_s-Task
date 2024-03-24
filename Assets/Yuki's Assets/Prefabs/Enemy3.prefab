@@ -162,6 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
-  speed: 12.5
-  initialAngle: 60
+  speed: 12
+  initialAngle: 70
   score: 3

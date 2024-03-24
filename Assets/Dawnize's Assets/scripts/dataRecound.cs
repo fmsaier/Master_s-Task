@@ -4,10 +4,10 @@ using UnityEngine;
 namespace Dawnize{
 public class dataRecound
 {
-    public static List<GameObject> cancerCeils;
-    public int medicineAcount;
+    public static int ceilAcount;
+    public static int medicineAcount;
     private void Start() {
-        cancerCeils=new List<GameObject>();
+        ceilAcount=0;
         medicineAcount=0;
     }
 }

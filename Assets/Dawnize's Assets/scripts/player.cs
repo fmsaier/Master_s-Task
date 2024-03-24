@@ -8,6 +8,8 @@ public class player : MonoBehaviour
     private float xMin,xMax,yMax,yMin;
     private Camera mainCamera;
     Vector2 leftDown,rightUp;
+    private bool isAndroid;
+    public GameObject Handle;
     private void Start() {
         mainCamera=Camera.main;
         leftDown=mainCamera.ScreenToWorldPoint(new Vector2(0,0));
@@ -16,15 +18,35 @@ public class player : MonoBehaviour
         xMax=rightUp.x;
         yMax=rightUp.y;
         yMin=leftDown.y;
-        Debug.Log(transform.position);
-        Debug.Log(rightUp);
+        if(Application.platform==RuntimePlatform.Android){
+            isAndroid=true;
+        }
+        else isAndroid=false;
     }
    void FixedUpdate() {
-        move();
+    Debug.Log(Application.platform);
+    if(isAndroid){
+        move_android();
     }
-    void move(){
+    else if(!isAndroid){
+        move_win();
+    }
+        Debug.Log(dataRecound.medicineAcount);
+    }
+    void move_win(){
         transform.Translate(new Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0)*speed);
     }
+    void move_android(){
+        float Posx=Handle.transform.localPosition.x;
+        float Posy=Handle.transform.localPosition.y;
+        transform.Translate(new Vector3(Posx/128f,Posy/128f,0)*speed);
+    }
+
+
+
+
+
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("medicine")){
@@ -35,9 +57,14 @@ public class player : MonoBehaviour
 
     //不同medicine的效果
     void getMedicine(medicine.medicineKind kind){
-        // switch(kind){
-        //     case medicine.medicineKind.:
-        // }
+        switch(kind){
+            case medicine.medicineKind.normal:
+                dataRecound.medicineAcount++;
+                break;
+            case medicine.medicineKind.unnormal:
+                dataRecound.medicineAcount+=2;
+                break;    
+        }
         
     }
 }

@@ -5,9 +5,9 @@ namespace Dawnize{
 public class medicine : MonoBehaviour
 {
 public enum medicineKind{
-    //不同药作用不同
+    normal,
+    unnormal
 }
 public medicineKind thisKind;
 }
-
 }

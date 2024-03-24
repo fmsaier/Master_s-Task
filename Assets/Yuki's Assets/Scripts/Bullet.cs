@@ -24,12 +24,11 @@ namespace Yuki
             Destroy(gameObject);
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            rb.velocity = Vector2.zero;
             animator.SetTrigger("hit");
 
-            Enemy enemy = collision.GetComponent<Enemy>();
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             enemy.hp--;
             if (enemy.hp <= 0)
             {

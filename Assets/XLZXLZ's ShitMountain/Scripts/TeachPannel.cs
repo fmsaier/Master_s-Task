@@ -7,7 +7,7 @@ namespace XLZXLZ
     public class TeachPannel : MonoBehaviour
     {
         public GameObject[] gameObjects;
-        private int currentIndex = -1;
+        private int currentIndex = 0;
         private Vector3 initialPosition;
         public float moveDuration = 2f; // 移动持续时间
 

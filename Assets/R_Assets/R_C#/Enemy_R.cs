@@ -27,6 +27,11 @@ public class Enemy_R : MonoBehaviour
 
         if (health <= 0)
         {
+            FenLie_R f = gameObject.GetComponent<FenLie_R>();
+            if (f != null)
+            {
+                f.Fenlie();
+            }
             Destroy(gameObject);
         }
     }

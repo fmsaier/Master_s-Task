@@ -29,7 +29,7 @@ public class SoundsManager_R : MonoBehaviour
     }
     public void PlayMusic(string name)
     {
-        Sound_R s = Array.Find(musicSounds, x => x.name == name);
+        Sound_R s = Array.Find(musicSounds, x => x.Name == name);
         if (s != null)
         {
             musicSource.clip = s.clip;
@@ -38,7 +38,7 @@ public class SoundsManager_R : MonoBehaviour
     }
     public void SfxPlay(string name)
     {
-        Sound_R s = Array.Find(SfxSounds, x => x.name == name);
+        Sound_R s = Array.Find(SfxSounds, x => x.Name == name);
         if (s != null)
         {
             SfxSource.PlayOneShot(s.clip);

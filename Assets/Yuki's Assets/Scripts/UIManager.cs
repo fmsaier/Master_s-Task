@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace Yuki
 {
@@ -16,6 +17,11 @@ namespace Yuki
 
         public GameObject gameOverPanel;
         public Text finalScoreText;
+
+        public GameObject pausePanel;
+        private bool isPause;
+
+        public GameObject introduction;
 
         private void Start()
         {
@@ -31,6 +37,7 @@ namespace Yuki
 
         public void PlayAgain()
         {
+            SceneManager.LoadScene("Yuki's GameScene");
             Time.timeScale = 1;
         }
 
@@ -39,9 +46,26 @@ namespace Yuki
             Time.timeScale = 1;
         }
 
+        public void GameStart()
+        {
+            introduction.SetActive(false);
+            Time.timeScale = 1;
+        }
+
         public void Pause()
         {
-            
+            if (!isPause)
+            {
+                Time.timeScale = 0;
+                isPause = true;
+                pausePanel.SetActive(true);
+            }
+            else
+            {
+                Time.timeScale = 1;
+                isPause = false;
+                pausePanel.SetActive(false);
+            }
         }
 
         public void GameOver()

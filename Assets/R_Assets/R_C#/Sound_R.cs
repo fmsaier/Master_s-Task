@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sound_R : MonoBehaviour
+[System.Serializable]
+public class Sound_R 
 {
     public string Name;
     public AudioClip clip;

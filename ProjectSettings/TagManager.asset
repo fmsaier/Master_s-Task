@@ -49,8 +49,22 @@ TagManager:
   - Snake
   - Lingwu
   - Ground
+  - EnemyAttack
+  - Bullet
   - medicine
   - Enemy
+  - citywall
+  - cw
+  - virus
+  - deadline
+  - FPlayer
+  - FEnemy
+  - FAttacker
+  - Bullet
+  - BillBoard
+  - Sign
+  - PlayerAttack
+  - EnemyFarAttack
   - GoodFood
   - BadFood
   layers:
@@ -62,8 +76,8 @@ TagManager:
   - UI
   - Enemy
   - Ground
-  - 
-  - 
+  - Bullet
+  - ceil
   - 
   - 
   - 
