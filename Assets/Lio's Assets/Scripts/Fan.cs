@@ -12,6 +12,7 @@ namespace Lio
         public bool begin;
         public float force1;
         public float force2;
+        public LayerMask layerMask;
 
         private bool rotation;
         // Start is called before the first frame update
@@ -25,13 +26,13 @@ namespace Lio
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Collider2D collider = Physics2D.OverlapPoint(mousePosition, layerMask);
 
-                if (hit.collider != null)
+                if (collider != null)
                 {
-                    if (hit.collider.gameObject == gameObject ||
-                        hit.collider.gameObject == transform.GetChild(0).gameObject)
+                    if (collider.gameObject == gameObject ||
+                        collider.gameObject == transform.GetChild(0).gameObject)
                     {
                         rotation = !rotation;
                     }

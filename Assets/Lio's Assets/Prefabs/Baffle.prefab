@@ -285,6 +285,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 0.5
   dgree: 90
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!58 &6753158497540343073
 CircleCollider2D:
   m_ObjectHideFlags: 0
