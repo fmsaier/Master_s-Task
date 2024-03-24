@@ -17,6 +17,7 @@ namespace Lio
         private Vector3 lastPoint;
         private float lastTime;
         private bool isDisapearing;
+        private float birth;
         // Start is called before the first frame update
         void Start()
         {
@@ -24,14 +25,18 @@ namespace Lio
             lastPoint = transform.position;
             lastTime = Time.time;
             isDisapearing = false;
-
-            Destroy(gameObject, life);
+            birth = Time.time;
         }
 
         // Update is called once per frame
         void Update()
         {
             if (isDisapearing) return;
+            if (Time.time - birth > life)
+            {
+                isDisapearing = true;
+                ani.Play("Disappear");
+            }
             if (Time.time - lastTime > timeInterval)
             {
                 lastTime = Time.time;
@@ -56,6 +61,12 @@ namespace Lio
         private void OnDrawGizmosSelected()
         {
             Gizmos.DrawWireSphere(transform.position, range);
+        }
+
+        public void ResetLastTime()
+        {
+            lastTime = Time.time;
+            birth = Time.time;
         }
     }
 }

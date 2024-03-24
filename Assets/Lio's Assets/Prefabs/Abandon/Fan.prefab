@@ -154,7 +154,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 360
-  begin: 1
+  begin: 0
+  force1: 0.1
+  force2: 0
 --- !u!58 &3341677838668508010
 CircleCollider2D:
   m_ObjectHideFlags: 0
