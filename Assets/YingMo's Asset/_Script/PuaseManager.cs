@@ -30,4 +30,9 @@ public class PuaseManager : MonoBehaviour
     {
         SceneManager.LoadScene("PlayScene");
     }
+
+    public void BackToMain()
+    {
+        SceneManager.LoadScene("Bowuguan");
+    }
 }
