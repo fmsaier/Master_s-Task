@@ -51,6 +51,8 @@ TagManager:
   - Ground
   - medicine
   - Enemy
+  - GoodFood
+  - BadFood
   layers:
   - Default
   - TransparentFX
