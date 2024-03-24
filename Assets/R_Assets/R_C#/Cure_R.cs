@@ -15,6 +15,7 @@ public class Cure_R : MonoBehaviour
             p1 = collision.gameObject.GetComponent<R_PlayerHealth>();
             p1.health += cure;
             R_HealthBar.healthPresent = p1.health;
+            SoundsManager_R.Instance_RS.SfxPlay("Eat");
             Destroy(gameObject);
         }
     }

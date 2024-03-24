@@ -19,7 +19,7 @@ namespace YingMo
         public BossFightManager BFM;
         public GameObject DeadUI;
 
-        [Header ("»ù´¡ÊôÐÔ")]
+        [Header ("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
         public float MoveSpeed;
         public float JumpSpeed;
         public int Health;
@@ -53,27 +53,27 @@ namespace YingMo
 
         void ControledMove()
         {
-            float posX = Handle.transform.localPosition.x; //»ñÈ¡ Handle ¶ÔÏóµÄ±¾µØ X ×ø±êÖµ
-            float horizontal_move = posX / 128f; //Ä£Äâ Input.GetAxis µÄ·µ»ØÖµ
+            float posX = Handle.transform.localPosition.x; //ï¿½ï¿½È¡ Handle ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ X ï¿½ï¿½ï¿½ï¿½Öµ
+            float horizontal_move = posX / 128f; //Ä£ï¿½ï¿½ Input.GetAxis ï¿½Ä·ï¿½ï¿½ï¿½Öµ
             float faced_direction;
             
             if (posX > 0)
             {
-                faced_direction = 1; //Ä£Äâ Input.GetAxisRaw ·µ»Ø 1
+                faced_direction = 1; //Ä£ï¿½ï¿½ Input.GetAxisRaw ï¿½ï¿½ï¿½ï¿½ 1
             }
             else if (posX < 0)
             {
-                faced_direction = -1; //Ä£Äâ Input.GetAxisRaw ·µ»Ø -1
+                faced_direction = -1; //Ä£ï¿½ï¿½ Input.GetAxisRaw ï¿½ï¿½ï¿½ï¿½ -1
             }
             else
             {
-                faced_direction = 0; //Ä£Äâ Input.GetAxisRaw ·µ»Ø 0
+                faced_direction = 0; //Ä£ï¿½ï¿½ Input.GetAxisRaw ï¿½ï¿½ï¿½ï¿½ 0
             }
-            /*ÐÞ¶©½áÊø*/
+            /*ï¿½Þ¶ï¿½ï¿½ï¿½ï¿½ï¿½*/
 
-            //½ÇÉ«ÒÆ¶¯
+            //ï¿½ï¿½É«ï¿½Æ¶ï¿½
             Myrigidbody.velocity = new Vector2(horizontal_move * MoveSpeed , Myrigidbody.velocity.y);
-            //½ÇÉ«ÃæÏò
+            //ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½
             if (faced_direction != 0)
             {
                 transform.localScale = new Vector3(faced_direction, 1, 1);

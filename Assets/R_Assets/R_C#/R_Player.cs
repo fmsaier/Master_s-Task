@@ -123,7 +123,7 @@ public class R_Player : MonoBehaviour
                 jumpChance--;
                 Vector2 jumpVel = new Vector2(0.0f, jumpSpeed);
                 myRb2D.velocity = jumpVel * Vector2.up;
-                //soundsManager.Instance.SfxPlay("Jump");
+                SoundsManager_R.Instance_RS.SfxPlay("Jump");
             }
 
         }
@@ -158,6 +158,7 @@ public class R_Player : MonoBehaviour
             {
                 GameObject b;
                 b = Instantiate(Bullet, gameObject.transform.position, Quaternion.identity);
+                SoundsManager_R.Instance_RS.SfxPlay("ATK");
                 Rigidbody2D br;
                 br = b.GetComponent<Rigidbody2D>();
                 br.velocity = transform.rotation * new Vector3(shootSpeed, 0, 0);

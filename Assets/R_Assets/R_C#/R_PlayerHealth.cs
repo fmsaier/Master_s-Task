@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class R_PlayerHealth : MonoBehaviour
 {
+    [SerializeField] private GameObject losescnen;
+
     public float health;
     public Animator playerAim;
     private float hitCD = 1f;
@@ -71,6 +73,7 @@ public class R_PlayerHealth : MonoBehaviour
     void Death()
     {
         Destroy(gameObject);
+        losescnen.SetActive(true);
     }
 
 }
