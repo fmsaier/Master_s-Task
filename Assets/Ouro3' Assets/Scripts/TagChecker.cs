@@ -7,24 +7,27 @@ namespace Ouro3
     
     public class TagChecker : MonoBehaviour
     {
-        public bool Restart;
         public Checkers Checker;
-        private Tag player;
-        void Start()
+        [SerializeField]private Tag player;
+        public float desTime = 2;
+        private float timeCounter;
+
+        private void Start()
         {
-            Restart = true;
+            timeCounter = desTime;
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
-            if (Restart)
+            timeCounter -= Time.deltaTime;
+            if (timeCounter < 0)
             {
-                Restart = false;
+                timeCounter = 0;
+                DestroyBullet();
             }
         }
 
-        private void OnTriggerStay2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if(other.CompareTag("Player"))
             {
@@ -34,74 +37,82 @@ namespace Ouro3
 
         }
 
+        public void DestroyBullet()
+        {
+            Destroy(this.gameObject);
+        }
+
         public void StartCheck(Tags tag,Tag player)
         {
             if(tag == Tags.Acl)
             {
-                if(Checker == Checkers.AY)
+                if(Checker == Checkers.Prevent)
                 {
-                    player.Defence++;
+                    player.Defence+=2;
                 }
-                if(Checker == Checkers.AN)
+                if(Checker == Checkers.Cancer)
                 {
-                    if(player.Defence > 0)
+                    if(player.Defence > 4)
                     {
-                        player.Defence--;
+                        player.Defence-=4;
                     }
                     else
                     {
-                        player.Health--;
+                        player.Health-= (4 - player.Defence);
+                        player.Defence=0;   
                     }
                 }
             }
 
             if (tag == Tags.Bcl)
             {
-                if (Checker == Checkers.BY)
+                if (Checker == Checkers.Prevent)
                 {
-                    player.Defence++;
+                    player.Defence+=2;
                 }
-                if (Checker == Checkers.BN)
+                if (Checker == Checkers.Cancer)
                 {
-                    if (player.Defence > 0)
+                    if (player.Defence > 3)
                     {
-                        player.Defence--;
+                        player.Defence-=3;
                     }
                     else
                     {
-                        player.Health--;
+                        player.Health -= (3 - player.Defence);
+                        player.Defence=0;
                     }
                 }
             }
 
             if (tag == Tags.Ccl)
             {
-                if (Checker == Checkers.CY)
+                if (Checker == Checkers.Prevent)
                 {
-                    player.Defence++;
+                    player.Defence+=1;
                 }
-                if (Checker == Checkers.CN)
+                if (Checker == Checkers.Cancer)
                 {
-                    if (player.Defence > 0)
+                    if (player.Defence > 2)
                     {
-                        player.Defence--;
+                        player.Defence-=2;
                     }
                     else
                     {
-                        player.Health--;
+                        player.Health -= (2 - player.Defence);
+                        player.Defence=0;
                     }
                 }
             }
 
             if (tag == Tags.Dcl)
             {
-                if (Checker == Checkers.DY)
+                if (Checker == Checkers.Prevent)
                 {
                     player.Defence++;
                 }
-                if (Checker == Checkers.DN)
+                if (Checker == Checkers.Cancer)
                 {
-                    if (player.Defence > 0)
+                    if (player.Defence > 1)
                     {
                         player.Defence--;
                     }

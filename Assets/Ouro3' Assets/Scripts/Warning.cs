@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,77 +7,106 @@ namespace Ouro3
 {
     public enum Checkers
     {
-        AY, AN, BY, BN, CY, CN, DY, DN
+        Cancer,Prevent
     }
     public class Warning : MonoBehaviour
     {
-        public int Num = 8;
+        public int Num = 2;
         private int Count;
         public Checkers Checker;
-        public TagChecker tagChecker;
+        public GameObject bulletC;
+        public GameObject bulletP;
+        public GameObject player;
+        public Controller controller;
+        public float shootSpeed;
         public bool Restart;
+        [SerializeField]private bool change;
+        private bool Shoot;
+        public bool trigger;
         public Sprite[] Sprites;
         private SpriteRenderer Myrenderer;
+        public float coverTime = 1;
+        public float waitTime = 3;
         void Start()
         {
-            Restart = true;
-            tagChecker = GetComponentInChildren<TagChecker>();
             Myrenderer = GetComponent<SpriteRenderer>();
+            player = GameObject.FindWithTag("Player");
+            controller = player.GetComponent<Controller>();
+            change = true;
         }
 
         // Update is called once per frame
         void Update()
         {
+            Restart = AllControl.instance.restart;           
+            Myrenderer.sprite = Sprites[Count];
+
             if (Restart)
             {
+                change = true;
+            }
+            if (change)
+            {
                 RandomDicider();
-                Restart = false;
-                tagChecker.Checker = Checker;
+                change = false;
+            }
+
+            if(!controller.canMove && !trigger)
+            {
+                Shoot = true;
+                trigger = true;
+            }
+            if(controller.canMove)
+            {
+                trigger = false;
+            }
+
+            if(Shoot)
+            {
+                if(Checker == Checkers.Cancer)
+                {
+                    ShootC();
+                    Shoot = false;
+                }
+                if(Checker == Checkers.Prevent)
+                {
+                    ShootP();
+                    Shoot = false;
+                }
             }
         }
+
+        private void ShootC()
+        {
+            GameObject b;
+            b = Instantiate(bulletC, transform.position, Quaternion.identity);
+            Rigidbody2D rb;
+            rb = b.GetComponent<Rigidbody2D>();
+            rb.velocity = transform.rotation * new Vector3(shootSpeed, 0, 0);
+        }
+
+        private void ShootP()
+        {
+            GameObject b;
+            b = Instantiate(bulletP, transform.position, Quaternion.identity);
+            Rigidbody2D rb;
+            rb = b.GetComponent<Rigidbody2D>();
+            rb.velocity = transform.rotation * new Vector3(shootSpeed, 0, 0);
+        }
+
         private void RandomDicider()
         {
-            Count = Random.Range(0, Num - 1);
+            Count = Random.Range(0, Num);
             if (Count == 0)
             {
-                Checker = Checkers.AY;
+                Checker = Checkers.Cancer;
             }
 
             if (Count == 1)
             {
-                Checker = Checkers.AN;
+                Checker = Checkers.Prevent;
             }
 
-            if (Count == 2)
-            {
-                Checker = Checkers.BY;
-            }
-
-            if (Count == 3)
-            {
-                Checker = Checkers.BN;
-            }
-
-            if (Count == 4)
-            {
-                Checker = Checkers.CY;
-            }
-
-            if (Count == 5)
-            {
-                Checker = Checkers.CN;
-            }
-
-            if (Count == 6)
-            {
-                Checker = Checkers.DY;
-            }
-
-            if (Count == 7)
-            {
-                Checker = Checkers.DN;
-            }
-            Myrenderer.sprite = Sprites[Count];
         }
     }
 
