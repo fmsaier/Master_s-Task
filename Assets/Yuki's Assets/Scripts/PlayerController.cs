@@ -37,7 +37,7 @@ namespace Yuki
                 specialShotTimes--;
                 for (int i = -4; i <= 4; i++)
                 {
-                    GameObject b = Instantiate(bullet, transform.position, Quaternion.identity);
+                    GameObject b = Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, inputY * angleFix + i * 7.5f + 5));
                     b.GetComponent<Rigidbody2D>().velocity = Quaternion.Euler(0, 0, inputY * angleFix + i * 7.5f) * new Vector2(bulletSpeed + inputX * speedFix, 0);
                 }
             }
@@ -47,7 +47,7 @@ namespace Yuki
             {
                 coldDownTimeCounter = shootColdDown;
                 
-                GameObject b = Instantiate(bullet, transform.position, Quaternion.identity);
+                GameObject b = Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, inputY * angleFix + 5));
                 b.GetComponent<Rigidbody2D>().velocity = Quaternion.Euler(0, 0, inputY * angleFix) * new Vector2(bulletSpeed + inputX * speedFix, 0);
             }
 
@@ -57,8 +57,8 @@ namespace Yuki
 
         private void FixedUpdate()
         {
-            inputX = handle == null ? Input.GetAxis("Horizontal") : handle.transform.localPosition.x / 128;
-            inputY = handle == null ? Input.GetAxis("Vertical") : handle.transform.localPosition.y / 128;
+            inputX = Input.GetAxis("Horizontal") + handle.transform.localPosition.x / 128;
+            inputY = Input.GetAxis("Vertical") + handle.transform.localPosition.y / 128;
 
             transform.Translate(new Vector2(inputX * moveSpeed * Time.deltaTime, inputY * moveSpeed * Time.deltaTime), relativeTo: Space.World);
         }
