@@ -133,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61cdad0d75c336d4aaa593f11be629f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minLiveTime: 4
-  maxLiveTime: 6
+  minLiveTime: 2
+  maxLiveTime: 4
   score: 5
   particle: {fileID: 8348667638475677182, guid: c00f01eb0bb61a94f90eda51e87197f8, type: 3}
   clickEffectDuration: 0.5
