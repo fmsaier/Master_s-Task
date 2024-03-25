@@ -42,14 +42,13 @@ namespace Fu_x.i
             }
         }
 
-        private void HandleClickOrTouch()
+        protected void HandleClickOrTouch()
         {
-            Debug.Log("Clicked or Touched!");
+            Manager.Instance.killAmount++;
             health--;
             if (health <= 0) Destroy(gameObject);
         }
 
-        // 不断向玩家移动
         protected virtual void MoveTowardPlayer()
         {
             if (_player == null) return;

@@ -15,6 +15,7 @@ namespace Fu_x.i
         public GameObject move;
         public GameObject gameStart;
         public GameObject gameOver;
+        public GameObject victory;
 
         private void Awake()
         {
@@ -46,6 +47,7 @@ namespace Fu_x.i
             intro.gameObject.SetActive(false);
             background.gameObject.SetActive(false);
             gameStart.gameObject.SetActive(true);
+            Manager.Instance.GameStart();
             StartCoroutine(nameof(GameStartFade),1f);
         }
 
