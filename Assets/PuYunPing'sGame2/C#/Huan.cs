@@ -5,11 +5,16 @@ using UnityEngine;
 public class HuanPYP : MonoBehaviour
 {
     public float rotationSpeed = 100f;
+    public Rigidbody2D rb;
     private int Ci;
     public PlayerGame2PYP PlayerGame2;
     public NumberDisplayGame1PYP NumberDisplayGame1;
+    
+    public GameObject Handle;
+
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         Ci = 0;
         EnableRandomChildren(transform.GetChild(0).GetChild(0), 5);
         PlayerGame2 = GetComponent<PlayerGame2PYP>();
@@ -18,8 +23,22 @@ public class HuanPYP : MonoBehaviour
 
     void Update()
     {
-        float rotationAmount = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
-        transform.Rotate(0f, 0f, rotationAmount);
+        if (Handle!=null)
+        {
+            float posX=Handle.transform.position.x;
+            Debug.Log(posX);
+            if (posX > 1)
+            {
+                transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
+            }
+            else if (posX<-1)
+            {
+                transform.Rotate(0f, 0f, -rotationSpeed * Time.deltaTime);
+            }
+        }
+
+        //float rotationAmount = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
+        //transform.Rotate(0f, 0f, rotationAmount);
     }
 
     public void PanDing()

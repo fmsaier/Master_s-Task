@@ -31,7 +31,7 @@ public class FDiCiWangPYP : MonoBehaviour
             }
 
             NumberDisplayGame1.Number += 1;
-            WholePYP.Game2 += 1;
+            WholePYP.Game2PYP += 1;
             DiCiWang.SpawnPrefab();
 
             StartCoroutine(DelayedDestroy(0.02f)); // Æô¶¯Ð­³ÌÑÓ³Ù´Ý»Ù

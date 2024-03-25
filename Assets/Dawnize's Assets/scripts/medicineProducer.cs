@@ -9,7 +9,7 @@ Vector2 randomScreenPoint;
 Vector2 randomWorldPoint;
 Camera mainCamera;
 public GameObject[] medicine;
-public int produceInterval;
+public float produceInterval;
 float timeRecound;
 private void Start() {
     mainCamera=Camera.main;
@@ -19,6 +19,7 @@ private void Update() {
     if(timeRecound>=produceInterval){
         produceMedicine();
         timeRecound=0;
+        produceInterval=Random.Range(2f,4f);
     }
 }
 void produceMedicine(){

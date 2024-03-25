@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 namespace Dawnize{
 public class processCtrl : MonoBehaviour
 {
@@ -10,6 +11,7 @@ Vector2 randomScreenPoint;
 Vector2 randomWorldPoint;
 Camera mainCamera;
 public int[] enemiesAcount;
+private Coroutine cc;
 public float interval;
 
 private void Awake() {
@@ -19,7 +21,7 @@ private void Awake() {
     screenSize.ScreenHeight=Screen.height;
 }
 private void Start() {
-    StartCoroutine(ceilCtrl());
+   cc= StartCoroutine(ceilCtrl());
 }
 IEnumerator ceilCtrl(){
     //开场介绍
@@ -33,13 +35,16 @@ IEnumerator ceilCtrl(){
         yield return new WaitUntil(()=>dataRecound.ceilAcount==0);
         //每波次结束加科普        
     }
-    Debug.Log("成功");
+    SceneManager.LoadScene("victory");
+    yield break;
     //结束相关
 }
 private void Update() {
     if(dataRecound.ceilAcount>=20){
         //失败
-        Debug.Log("失败");
+        StopCoroutine(cc);
+        dataRecound.ceilAcount=0;
+        SceneManager.LoadScene("lose");
     }
 }
 void EnemyCreator(){
