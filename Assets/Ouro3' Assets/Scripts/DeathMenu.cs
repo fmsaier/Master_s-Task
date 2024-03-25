@@ -45,6 +45,17 @@ namespace Ouro3
             isOpen = false;
 
         }
+
+        public void Reload()
+        {
+            SceneManager.LoadScene("Ouro3's Scene");
+            Time.timeScale = 1;
+        }
+
+        public void StartGame()
+        {
+            AllControl.instance.restart = true;
+        }
     }
 
 }
