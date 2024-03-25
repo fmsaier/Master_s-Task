@@ -48,6 +48,7 @@ public class SeyangCardController : MonoBehaviour
             })
             .Append(transform.DOScale(Vector3.one, fadeInOutDuration))
             .onComplete += () => onClick?.Invoke(this);
+        IsShow = true;
     }
 
     public void HideContent()
@@ -60,6 +61,7 @@ public class SeyangCardController : MonoBehaviour
                 whatImage.gameObject.SetActive(true);
             })
             .Append(transform.DOScale(Vector3.one, fadeInOutDuration));
+        IsShow = false;
     }
 
     public void Clear()
