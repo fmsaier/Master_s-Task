@@ -5,72 +5,72 @@ using UnityEngine.SceneManagement;
 
 public class TransitionManager : Singleton<TransitionManager>
 {
-    public string startScene; // ¿ªÊ¼³¡¾°
+    public string startScene; // å¼€å§‹åœºæ™¯
 
-    public CanvasGroup fadeCanvasGroup; // »ñµÃPanelsµÄ±äÁ¿
-    public float fadeDuration; // ¿ØÖÆÇĞ»»µÄÊ±¼ä
-    private bool isFade; // ÅĞ¶ÏÊÇ·ñÕıÔÚÇĞ»»³¡¾°
+    public CanvasGroup fadeCanvasGroup; // è·å¾—Panelsçš„å˜é‡
+    public float fadeDuration; // æ§åˆ¶åˆ‡æ¢çš„æ—¶é—´
+    private bool isFade; // åˆ¤æ–­æ˜¯å¦æ­£åœ¨åˆ‡æ¢åœºæ™¯
 
     private void Start()
     {
-        // Í¨¹ıĞ­³Ì¼ÓÔØ³õÊ¼³¡¾°
+        // é€šè¿‡åç¨‹åŠ è½½åˆå§‹åœºæ™¯
         StartCoroutine(TransitionToScene(string.Empty, startScene));
     }
 
-    // ÇĞ»»³¡¾°
+    // åˆ‡æ¢åœºæ™¯
     public void Transition(string from, string to)
     {
-        // Èç¹û²»ÊÇÕıÔÚ³¡¾°ÇĞ»»£¬ÄÇÃ´Ö´ĞĞĞ­³Ì
+        // å¦‚æœä¸æ˜¯æ­£åœ¨åœºæ™¯åˆ‡æ¢ï¼Œé‚£ä¹ˆæ‰§è¡Œåç¨‹
         if (!isFade)
         {
             StartCoroutine(TransitionToScene(from, to));
         }
     }
 
-    // Ğ­³Ì·½·¨
+    // åç¨‹æ–¹æ³•
     private IEnumerator TransitionToScene(string from, string to)
     {
-        yield return Fade(1); // ³¡¾°ÇĞ»»Íê±ÏÇ°ÎªÈ«ºÚ
-                              // ÔÚÖ´ĞĞÍêÉÏÃæµÄ²Å»áÖ´ĞĞÒÔÏÂÄÚÈİ
-                              // Èç¹ûÏëÒªÍ¬Ê±Ö´ĞĞ£¬¿ÉÒÔ½«ÉÏÃæµÄ´úÂëĞŞ¸ÄÎªstartCoroutine
+        yield return Fade(1); // åœºæ™¯åˆ‡æ¢å®Œæ¯•å‰ä¸ºå…¨é»‘
+                              // åœ¨æ‰§è¡Œå®Œä¸Šé¢çš„æ‰ä¼šæ‰§è¡Œä»¥ä¸‹å†…å®¹
+                              // å¦‚æœæƒ³è¦åŒæ—¶æ‰§è¡Œï¼Œå¯ä»¥å°†ä¸Šé¢çš„ä»£ç ä¿®æ”¹ä¸ºstartCoroutine
 
-        // Èç¹ûÓĞµÚÒ»¸ö³¡¾°£¬²Å»áÖ´ĞĞĞ¶ÔØµÄ¶¯×÷£¬·ñÔòÖ±½Ó¼ÓÔØ¼´¿É
+        // å¦‚æœæœ‰ç¬¬ä¸€ä¸ªåœºæ™¯ï¼Œæ‰ä¼šæ‰§è¡Œå¸è½½çš„åŠ¨ä½œï¼Œå¦åˆ™ç›´æ¥åŠ è½½å³å¯
         if (from != string.Empty)
         {
-            yield return SceneManager.UnloadSceneAsync(from); // Ğ¶ÔØ³¡¾°
+            yield return SceneManager.UnloadSceneAsync(from); // å¸è½½åœºæ™¯
         }
 
-        yield return SceneManager.LoadSceneAsync(to, LoadSceneMode.Additive); // ÒÔ¼¤»îµÄ·½Ê½¼ÓÔØ³¡¾°
+        yield return SceneManager.LoadSceneAsync(to, LoadSceneMode.Additive); // ä»¥æ¿€æ´»çš„æ–¹å¼åŠ è½½åœºæ™¯
 
-        // ÉèÖÃĞÂ³¡¾°Îª¼¤»î³¡¾°
-        // ´ËÊ±³¡¾°ÖĞÒ»¹²ÓĞÁ½¸ö³¡¾°£¬ĞòºÅÎª0Óë1£¬Í¨¹ıÊıÁ¿-1´Ó¶øÕÒµ½ĞÂ¼ÓÔØµÄ³¡¾°
+        // è®¾ç½®æ–°åœºæ™¯ä¸ºæ¿€æ´»åœºæ™¯
+        // æ­¤æ—¶åœºæ™¯ä¸­ä¸€å…±æœ‰ä¸¤ä¸ªåœºæ™¯ï¼Œåºå·ä¸º0ä¸1ï¼Œé€šè¿‡æ•°é‡-1ä»è€Œæ‰¾åˆ°æ–°åŠ è½½çš„åœºæ™¯
         Scene newScene = SceneManager.GetSceneAt(SceneManager.sceneCount - 1);
         SceneManager.SetActiveScene(newScene);
 
-        yield return Fade(0); // ³¡¾°Ö´ĞĞÍê±ÏºóÎªÍ¸Ã÷
+        yield return Fade(0); // åœºæ™¯æ‰§è¡Œå®Œæ¯•åä¸ºé€æ˜
     }
 
     /// <summary>
-    /// ½¥Èë½¥³öĞ§¹û
+    /// æ¸å…¥æ¸å‡ºæ•ˆæœ
     /// </summary>
-    /// <param name="targetAlpha">1ÊÇºÚ£¬0ÊÇÍ¸Ã÷</param>
+    /// <param name="targetAlpha">1æ˜¯é»‘ï¼Œ0æ˜¯é€æ˜</param>
     /// <returns></returns>
     private IEnumerator Fade(float targetAlpha)
     {
         isFade = true;
 
-        fadeCanvasGroup.blocksRaycasts = true; // ¶ÔÓ¦PanelsÖĞCanvasGroupµÄÊôĞÔ
+        fadeCanvasGroup.blocksRaycasts = true; // å¯¹åº”Panelsä¸­CanvasGroupçš„å±æ€§
 
         float speed = Mathf.Abs(fadeCanvasGroup.alpha - targetAlpha) / fadeDuration;
 
-        // Èç¹ûÁ½¸öÖµ²»ÏàËÆ£¬ÄÇÃ´»ºÂıÈÃÖµ±äÎªÄ¿±êÖµ
+        // å¦‚æœä¸¤ä¸ªå€¼ä¸ç›¸ä¼¼ï¼Œé‚£ä¹ˆç¼“æ…¢è®©å€¼å˜ä¸ºç›®æ ‡å€¼
         while (!Mathf.Approximately(fadeCanvasGroup.alpha, targetAlpha))
         {
             fadeCanvasGroup.alpha = Mathf.MoveTowards(fadeCanvasGroup.alpha, targetAlpha, speed * Time.deltaTime);
-            yield return null; // ·´¸´Ö´ĞĞÑ­»·
+            yield return null; // åå¤æ‰§è¡Œå¾ªç¯
         }
 
-        fadeCanvasGroup.blocksRaycasts = false; // ¶ÔÓ¦PanelsÖĞCanvasGroupµÄÊôĞÔ
+        fadeCanvasGroup.blocksRaycasts = false; // å¯¹åº”Panelsä¸­CanvasGroupçš„å±æ€§
         isFade = false;
     }
 }
