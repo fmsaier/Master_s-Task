@@ -134,4 +134,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Yuki's Assets/Scenes/Yuki's GameScene.unity
     guid: 257645841e0906b40b757e89529f3944
+  - enabled: 1
+    path: Assets/Dawnize's Assets/scene/lose.unity
+    guid: a825cab91d1e4c445b190eb22be6462b
+  - enabled: 1
+    path: Assets/Dawnize's Assets/scene/luzhou.unity
+    guid: 52f439a3802c8aa49b2403476c0d6dd8
+  - enabled: 1
+    path: Assets/Dawnize's Assets/scene/victory.unity
+    guid: 27ab68d18930e024abba359d60f9d900
   m_configObjects: {}

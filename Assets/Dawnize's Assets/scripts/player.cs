@@ -24,14 +24,12 @@ public class player : MonoBehaviour
         else isAndroid=false;
     }
    void FixedUpdate() {
-    Debug.Log(Application.platform);
     if(isAndroid){
         move_android();
     }
     else if(!isAndroid){
         move_win();
     }
-        Debug.Log(dataRecound.medicineAcount);
     }
     void move_win(){
         transform.Translate(new Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0)*speed);

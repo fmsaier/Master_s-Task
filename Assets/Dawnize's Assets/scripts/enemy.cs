@@ -27,8 +27,8 @@ public void destroyCancerCeil(){
     timer+=Time.deltaTime;
     timer1+=Time.deltaTime;
     if(timer>=fenlieInterval){
+        fenlieInterval+=3;
         GameObject temp= Instantiate(fenlie,transform.position,Quaternion.identity);
-        Debug.Log(temp);
         temp.GetComponentInChildren<enemy>().isFenlie=true;
         dataRecound.ceilAcount++;
         timer=0;
