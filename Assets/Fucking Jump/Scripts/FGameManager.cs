@@ -154,4 +154,10 @@ public class FGameManager : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene("Fucking Jump");
     }
+
+    public void Leave()
+    {
+        SceneManager.LoadScene("Start");
+    }
+
 }
