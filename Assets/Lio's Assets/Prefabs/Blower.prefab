@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2053493805271856773}
   - component: {fileID: 4838787831337284559}
   - component: {fileID: 2414580451938258699}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Blower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
