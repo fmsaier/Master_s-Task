@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class WholePYP : MonoBehaviour
 {
-    public static int Game2;
+    public static int Game2PYP;
+    public static int PYPElement;
     // Start is called before the first frame update
     void Start()
     {

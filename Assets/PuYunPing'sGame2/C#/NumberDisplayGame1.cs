@@ -11,7 +11,7 @@ public class NumberDisplayGame1PYP : MonoBehaviour
     void Start()
     {
         textComponent = GetComponent<Text>();
-        Number = 0;
+        Number = WholePYP.Game2PYP;
     }
 
     void Update()
