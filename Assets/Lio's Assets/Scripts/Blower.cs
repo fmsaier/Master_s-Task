@@ -12,7 +12,8 @@ namespace Lio
         public bool begin;
         public float force;
 
-        private bool runing;
+        [HideInInspector]
+        public bool runing;
         private Vector3 direction;
 
         // Start is called before the first frame update
