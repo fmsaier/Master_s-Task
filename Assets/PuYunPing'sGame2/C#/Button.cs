@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ToPYP : MonoBehaviour
 {
-
+    public string StringScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +25,18 @@ public class ToPYP : MonoBehaviour
 
     public void Next()
     {
-        WholePYP.PYPElement += 1;
+        if (WholePYP.PYPElement<=8)
+        {
+            WholePYP.PYPElement += 1;
+        }
+        else
+        {
+            SceneManager.LoadScene(StringScene);
+        }
+    }
+
+    public void BackAgain()
+    {
+        SceneManager.LoadScene("Game2BeginPOYP");
     }
 }
