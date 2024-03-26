@@ -6,6 +6,7 @@ namespace Thenobody
     public class NoteGenerate : MonoBehaviour
     {
         public GameObject Canvas;
+        RectTransform RectTransform;
         public float frequency;
         public float leftEdge, rightEdge;
         public float height, speed;
@@ -16,11 +17,15 @@ namespace Thenobody
 
         private void Start()
         {
+            RectTransform = Canvas.GetComponent<RectTransform>();
+            leftEdge = Canvas.transform.position.x - RectTransform.rect.width * 0.4f;
+            rightEdge = Canvas.transform.position.x + RectTransform.rect.width * 0.4f;
+            height = Canvas.transform.position.y + RectTransform.rect.height * 0.5f;
             for (int i = 1; i <= 7; i++)
             {
-                float x = leftEdge + i * (rightEdge - leftEdge) / 8;
+                float x = leftEdge + i * RectTransform.rect.width / 8;
                 float y = height;
-                generatePoints.Add(new Vector3(x + 700f, y, 0));
+                generatePoints.Add(new Vector3(x, y, 0));
             }
             StartCoroutine(GenerateNotes());
         }

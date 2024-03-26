@@ -6,6 +6,8 @@ namespace Thenobody
 {
     public class Enemy111 : MonoBehaviour
     {
+        public GameObject Canvas;
+        RectTransform RectTransform;
         private Button button;
         public int enemytype;
         Rigidbody2D rb;
@@ -14,8 +16,10 @@ namespace Thenobody
         [SerializeField] private float time; 
         public void Start()
         {
+            Canvas = GameObject.Find("Canvas");
+            RectTransform = Canvas.GetComponent<RectTransform>();
             rb = GetComponent<Rigidbody2D>();
-            rb.velocity = new Vector2(0, -speed);
+            rb.velocity = new Vector2(0, -RectTransform.rect.height / 5f);
             time = 0;
             button = GetComponent<Button>();
             button.onClick.AddListener(OnClick);
