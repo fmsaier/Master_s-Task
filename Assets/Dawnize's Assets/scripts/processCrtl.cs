@@ -5,20 +5,24 @@ using UnityEngine.SceneManagement;
 namespace Dawnize{
 public class processCtrl : MonoBehaviour
 {
-public GameObject cancerCeil;
-public static bool isTutorialOver=false;
+public GameObject cancerCeil,pauseUI;
+public static bool isTutorialOver;
 Vector2 randomScreenPoint;
 Vector2 randomWorldPoint;
 Camera mainCamera;
 public int[] enemiesAcount;
 private Coroutine cc;
 public float interval;
+public GameObject PauseUIImage;
+public static bool isHang;
 
 private void Awake() {
     Time.timeScale=0;
     mainCamera=Camera.main;
     screenSize.ScreenWidth=Screen.width;
     screenSize.ScreenHeight=Screen.height;
+    isTutorialOver=false;
+    isHang=false;
 }
 private void Start() {
    cc= StartCoroutine(ceilCtrl());
@@ -31,6 +35,7 @@ IEnumerator ceilCtrl(){
         for(int j=0;j<enemiesAcount[i];j++){
             EnemyCreator();
             yield return new WaitForSeconds(interval);
+            yield return new WaitUntil(()=>isHang==false);
         }      
         yield return new WaitUntil(()=>dataRecound.ceilAcount==0);
         //每波次结束加科普        
@@ -46,6 +51,20 @@ private void Update() {
         dataRecound.ceilAcount=0;
         SceneManager.LoadScene("lose");
     }
+    if(Input.GetKeyDown(KeyCode.Escape)&&PauseUIImage.activeSelf==false&&isTutorialOver){
+        PauseUIImage.SetActive(true);
+        pauseUI.GetComponent<PauseUI>().pauseButtonUnvisual();
+        isHang=true;
+        Time.timeScale=0;
+    }
+    else if(Input.GetKeyDown(KeyCode.Escape)&&PauseUIImage.activeSelf==true&&isTutorialOver){
+        PauseUIImage.SetActive(false);
+        pauseUI.GetComponent<PauseUI>().pauseButtonVisual();
+        isHang=false;
+        Time.timeScale=1;
+    }
+    Debug.Log(Time.timeScale);
+    Debug.Log(isHang);
 }
 void EnemyCreator(){
     randomScreenPoint=new Vector2(Random.Range(screenSize.ScreenWidth/2,screenSize.ScreenWidth),Random.Range(0,screenSize.ScreenHeight));

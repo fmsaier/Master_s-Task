@@ -16,6 +16,7 @@ public void setAnotherActive(){
 } 
 public void timeScaleBack(){
     Time.timeScale=1;
+    processCtrl.isHang=false;
     MedAccoundUI.SetActive(true);
 }
 public void isTutorialOver()
@@ -29,8 +30,7 @@ public void again(){
     SceneManager.LoadScene("luzhou");
 }
 public void backToMenu(){
-    Debug.Log("回到主菜单");
-    //回主菜单
+SceneManager.LoadScene(1);
 }
 }
 }
