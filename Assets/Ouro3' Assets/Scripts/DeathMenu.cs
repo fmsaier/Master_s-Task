@@ -51,7 +51,11 @@ namespace Ouro3
             SceneManager.LoadScene("Ouro3's Scene");
             Time.timeScale = 1;
         }
-
+        public void NextLevel()
+        {
+            SceneManager.LoadScene("thenobody996's Scene");
+            Time.timeScale = 1;
+        }
         public void StartGame()
         {
             AllControl.instance.restart = true;
