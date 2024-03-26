@@ -52,7 +52,7 @@ public class R_Player : MonoBehaviour
             //Filp();
             //Jump();
             CheckGround();
-            oneSideCheck();
+            //oneSideCheck();
         }
     }
 
