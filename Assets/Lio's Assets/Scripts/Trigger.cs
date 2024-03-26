@@ -9,6 +9,7 @@ namespace Lio
     {
         public GameObject next;
         public int num;
+        public bool dontDes;
 
         private int count;
         // Start is called before the first frame update
@@ -36,6 +37,15 @@ namespace Lio
             {
                 next.SetActive(true);
             }
+        }
+
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            if (!dontDes) return;
+            GameObject go = collision.gameObject;
+            Smog smog = go.GetComponent<Smog>();
+            if (smog == null) return;
+            smog.ResetLastTime();
         }
     }
 }

@@ -33,7 +33,8 @@ namespace Lio
                     if (hit.collider.gameObject == gameObject ||
                         hit.collider.gameObject == transform.GetChild(0).gameObject)
                     {
-                        rotation = !rotation;
+                        //rotation = !rotation;
+                        rotation = true;
                     }
                 }
             }
