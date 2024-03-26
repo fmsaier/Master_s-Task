@@ -62,7 +62,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/PuYunPing'sGame2/Scene/Game2PYP.unity
     guid: 8ef4fa3fa4ba9e94cbc9bc20ba3f86c8
-  - enabled: 1
+  - enabled: 0
     path: Assets/PuYunPing'sGame2/Scene/Game2TeachPYP.unity
     guid: 3474993764b593b4a8c7dc3575a6ed13
   - enabled: 1
@@ -86,4 +86,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/PuYunPing'sGame2/Scene/Game2BeginPOYP.unity
     guid: 0fe866db4e5ecf148ae7dfae77444f61
+  - enabled: 1
+    path: Assets/Lio's Assets/Scenes/LioS2.unity
+    guid: bd19b9b303b08da4d97ade0d802a11ab
+  - enabled: 1
+    path: Assets/Lio's Assets/Scenes/Lio's Scene.unity
+    guid: ee9a73546239ac545a8486614af1e8f2
   m_configObjects: {}
