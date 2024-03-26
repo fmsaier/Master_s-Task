@@ -28,7 +28,6 @@ namespace Thenobody
             {
                 if (enemytype == 0)
                     HabitsScore.instance.Punish();
-                Debug.Log("1");
                 Destroy(gameObject);
             }
         }

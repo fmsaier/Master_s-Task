@@ -11,11 +11,14 @@ namespace Thenobody
     {
         public static HabitsScore instance;
         public Action onEnd;
-        public Action noodle;
-        public Action hot;
-        public Action smokefood;
+
         public Text scoreText;
+        public Text FinalScoreText;
         public Text now;
+        public Text Tips0;
+        public Text Tips1;
+        public Text Tips2;
+
 
         public float GameTime;
         public float timenow;
@@ -43,6 +46,9 @@ namespace Thenobody
             suancaicount = 0;
             colddown = 0;
             timenow = GameTime;
+            Tips0.enabled = true;
+            Tips1.enabled = false;
+            Tips2.enabled = false;
         }
         public void ScoreUpdate(int enemytype)
         {
@@ -80,8 +86,10 @@ namespace Thenobody
             else
             {
                 score -= 20;
-                suancaicount = 0;
-                smokefood?.Invoke();
+                suancaicount = 3;
+                Tips0.enabled = false;
+                Tips1.enabled = true;
+                Tips2.enabled = false;
             }
         }
         public void noodles()
@@ -89,7 +97,6 @@ namespace Thenobody
             score += 5;
             if(suancaicount > 0)
                 suancaicount--;
-            noodle?.Invoke();
         }
         public void recai()
         {
@@ -100,8 +107,11 @@ namespace Thenobody
             else
             {
                 score -= 30;
-                hot?.Invoke();
+                Tips0.enabled = false;
+                Tips1.enabled = false;
+                Tips2.enabled = true;
             }
+            suancaicount--;
             colddown = recaicolddown;
         }
         private void Update()
@@ -120,6 +130,7 @@ namespace Thenobody
             else if(timenow < 0)
             {
                 timenow = 0;
+                FinalScoreText.text = score.ToString();
                 onEnd?.Invoke();
             }
         }

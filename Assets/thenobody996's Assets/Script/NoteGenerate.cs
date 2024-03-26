@@ -26,7 +26,7 @@ namespace Thenobody
         }
        private IEnumerator GenerateNotes()
         {
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(2);
 
             for(int rng = Random.Range(1,9); ; rng = Random.Range(1, 9))
             {
