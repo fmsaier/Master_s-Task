@@ -18,9 +18,9 @@ namespace Thenobody
         {
             for (int i = 1; i <= 7; i++)
             {
-                float x = leftEdge + i * (rightEdge - leftEdge) / 7;
+                float x = leftEdge + i * (rightEdge - leftEdge) / 8;
                 float y = height;
-                generatePoints.Add(new Vector3(x, y, 0));
+                generatePoints.Add(new Vector3(x + 700f, y, 0));
             }
             StartCoroutine(GenerateNotes());
         }
@@ -28,7 +28,7 @@ namespace Thenobody
         {
             yield return new WaitForSeconds(4);
 
-            for(int rng = Random.Range(1,10); ; rng = Random.Range(1, 8))
+            for(int rng = Random.Range(1,10); ; rng = Random.Range(1, 10))
             {
                 track = Random.Range(0,6);
                 switch(rng)

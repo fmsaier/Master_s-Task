@@ -70,7 +70,8 @@ namespace Thenobody
         public void noodles()
         {
             score += 5;
-            suancaicount--;
+            if(suancaicount > 0)
+                suancaicount--;
         }
         public void recai()
         {
@@ -83,6 +84,13 @@ namespace Thenobody
                 score -= 30;
             }
             colddown = recaicolddown;
+        }
+        private void Update()
+        {
+            if (colddown > 0)
+                colddown -= Time.deltaTime;
+            else if(colddown < 0)
+                colddown = 0;
         }
     }
 }

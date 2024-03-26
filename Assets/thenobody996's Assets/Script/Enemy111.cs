@@ -10,13 +10,22 @@ namespace Thenobody
         public int enemytype;
         Rigidbody2D rb;
         public float speed;
+        public float generatetime;
+        [SerializeField] private float time; 
         public void Start()
         {
             rb = GetComponent<Rigidbody2D>();
             rb.velocity = new Vector2(0, -speed);
+            time = 0;
             button = GetComponent<Button>();
             button.onClick.AddListener(OnClick);
             HabitsScore.instance.onEnd += OnEnd;
+        }
+        private void Update()
+        {
+            time += Time.deltaTime;
+            if (time > generatetime)
+                Destroy(gameObject);
         }
         private void OnClick()
         {

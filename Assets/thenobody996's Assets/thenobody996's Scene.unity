@@ -575,17 +575,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Canvas: {fileID: 1647734660}
-  frequency: 5
-  leftEdge: -600
-  rightEdge: 600
-  height: 800
+  frequency: 1.2
+  leftEdge: -300
+  rightEdge: 1800
+  height: 1800
   speed: 50
   note:
   - {fileID: 4451197593201955676, guid: 875d846016ab9d44c892f75554a22c03, type: 3}
   - {fileID: 6883322120999584105, guid: df042c7c68af3744fb5e751540a1c842, type: 3}
   - {fileID: 5494176359119576691, guid: c2dcc33e34ace0349b48549fe2b2090c, type: 3}
   - {fileID: 32824497204245599, guid: 387b6bc35c64c374f9fc5f1c0cd54d71, type: 3}
-  - {fileID: 32824497204245599, guid: 387b6bc35c64c374f9fc5f1c0cd54d71, type: 3}
+  - {fileID: 1054373177039798280, guid: 1188c1ec779549244add9938478acccd, type: 3}
   generatePoints: []
 --- !u!1 &2016603889
 GameObject:
