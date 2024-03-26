@@ -11,6 +11,15 @@ namespace Thenobody
     {
         public static HabitsScore instance;
         public Action onEnd;
+        public Action noodle;
+        public Action hot;
+        public Action smokefood;
+        public Text scoreText;
+        public Text now;
+
+        public float GameTime;
+        public float timenow;
+        public int texttime;
 
         [SerializeField] public float score;
         public int suancaicount;
@@ -33,6 +42,7 @@ namespace Thenobody
             score = 0;
             suancaicount = 0;
             colddown = 0;
+            timenow = GameTime;
         }
         public void ScoreUpdate(int enemytype)
         {
@@ -50,11 +60,17 @@ namespace Thenobody
                 case 3:
                     recai();
                     break;
-            }    
+            }
+            scoreText.text = score.ToString();
         }
         public void Enemy()
         {
             score += 1;
+        }
+        public void Punish()
+        {
+            score -= 1;
+            scoreText.text = score.ToString();
         }
         public void suancai()
         {
@@ -65,6 +81,7 @@ namespace Thenobody
             {
                 score -= 20;
                 suancaicount = 0;
+                smokefood?.Invoke();
             }
         }
         public void noodles()
@@ -72,6 +89,7 @@ namespace Thenobody
             score += 5;
             if(suancaicount > 0)
                 suancaicount--;
+            noodle?.Invoke();
         }
         public void recai()
         {
@@ -82,6 +100,7 @@ namespace Thenobody
             else
             {
                 score -= 30;
+                hot?.Invoke();
             }
             colddown = recaicolddown;
         }
@@ -91,6 +110,18 @@ namespace Thenobody
                 colddown -= Time.deltaTime;
             else if(colddown < 0)
                 colddown = 0;
+
+            if(timenow > 0)
+            {
+                timenow -= Time.deltaTime;
+                texttime = (int)timenow;
+                now.text = texttime.ToString();
+            }
+            else if(timenow < 0)
+            {
+                timenow = 0;
+                onEnd?.Invoke();
+            }
         }
     }
 }

@@ -28,7 +28,7 @@ namespace Thenobody
         {
             yield return new WaitForSeconds(4);
 
-            for(int rng = Random.Range(1,10); ; rng = Random.Range(1, 10))
+            for(int rng = Random.Range(1,9); ; rng = Random.Range(1, 9))
             {
                 track = Random.Range(0,6);
                 switch(rng)

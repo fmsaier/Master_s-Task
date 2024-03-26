@@ -25,7 +25,12 @@ namespace Thenobody
         {
             time += Time.deltaTime;
             if (time > generatetime)
+            {
+                if (enemytype == 0)
+                    HabitsScore.instance.Punish();
+                Debug.Log("1");
                 Destroy(gameObject);
+            }
         }
         private void OnClick()
         {

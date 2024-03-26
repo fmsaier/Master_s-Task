@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemytype: 1
-  speed: 300
+  speed: 400
   generatetime: 8
   time: 0
 --- !u!50 &4410521988747158982
