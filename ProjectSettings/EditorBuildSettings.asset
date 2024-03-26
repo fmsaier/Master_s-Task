@@ -83,4 +83,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Dawnize's Assets/scene/victory.unity
     guid: 27ab68d18930e024abba359d60f9d900
+  - enabled: 1
+    path: Assets/PuYunPing'sGame2/Scene/Game2BeginPOYP.unity
+    guid: 0fe866db4e5ecf148ae7dfae77444f61
   m_configObjects: {}

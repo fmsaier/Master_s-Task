@@ -26,19 +26,18 @@ public class HuanPYP : MonoBehaviour
         if (Handle!=null)
         {
             float posX=Handle.transform.position.x;
-            Debug.Log(posX);
             if (posX > 1)
-            {
-                transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
-            }
-            else if (posX<-1)
             {
                 transform.Rotate(0f, 0f, -rotationSpeed * Time.deltaTime);
             }
+            else if (posX<-1)
+            {
+                transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
+            }
         }
 
-        //float rotationAmount = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
-        //transform.Rotate(0f, 0f, rotationAmount);
+        float rotationAmount = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
+        transform.Rotate(0f, 0f, rotationAmount);
     }
 
     public void PanDing()

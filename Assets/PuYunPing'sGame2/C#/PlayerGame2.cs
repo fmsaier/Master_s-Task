@@ -11,6 +11,8 @@ public class PlayerGame2PYP : MonoBehaviour
     public HealthPYP Health;
     private Animator myAnim;
     public float WudiTime=0f;
+    public GameObject WinGameObject;
+    public GameObject LoseGameObject;
 
     public AudioSource audioSource;
 
@@ -31,6 +33,11 @@ public class PlayerGame2PYP : MonoBehaviour
     {
         if(health<=0)
         {
+            if (WholePYP.Game2PYP>=10)
+            {
+                WinGameObject.SetActive(true);
+            }
+            else { LoseGameObject.SetActive(true); }
             Destroy(gameObject);
         }
         if(WudiTime>=0f)
