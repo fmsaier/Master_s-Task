@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FAi : MonoBehaviour
 {
@@ -54,20 +55,20 @@ public class FAi : MonoBehaviour
         while (timer < 0.2f)
         {
             timer += Time.deltaTime;
-            Color color = GetComponent<SpriteRenderer>().color;
+            Color color = GetComponent<Image>().color;
             color.g = 1 - 5 * timer;
             color.b = 1 - 5 * timer;
-            GetComponent<SpriteRenderer>().color = color;
+            GetComponent<Image>().color = color;
             yield return null;
         }
         timer = 0;
         while (timer < 0.2f)
         {
             timer += Time.deltaTime;
-            Color color = GetComponent<SpriteRenderer>().color;
+            Color color = GetComponent<Image>().color;
             color.g = 5 * timer;
             color.b = 5 * timer;
-            GetComponent<SpriteRenderer>().color = color;
+            GetComponent<Image>().color = color;
             yield return null;
         }
     }

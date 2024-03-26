@@ -38,6 +38,8 @@ public class FResourceManager : MonoBehaviour
     public Button PauseButton;
     public GameObject FinalPanel;
     public TextMeshProUGUI FinalText;
+    public GameObject SettingPanel;
+    public TextMeshProUGUI SettingText;
     public Button UpButton;
     public Button DownButton;
     public Button ShootButton;

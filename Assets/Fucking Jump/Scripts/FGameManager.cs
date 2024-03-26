@@ -157,7 +157,7 @@ public class FGameManager : MonoBehaviour
 
     public void Leave()
     {
-        SceneManager.LoadScene("Start");
+        SceneManager.LoadScene(1);
     }
 
 }
