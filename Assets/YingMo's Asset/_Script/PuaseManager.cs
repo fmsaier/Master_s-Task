@@ -3,36 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PuaseManager : MonoBehaviour
+namespace YingMo
 {
-    public GameObject PuaseUI;
-    public GameObject GuideUI;
-
-    public void Puase()
+    public class PuaseManager : MonoBehaviour
     {
-        PuaseUI.SetActive(true);
-        Time.timeScale = 0;
-    }
+        public GameObject PuaseUI;
+        public GameObject GuideUI;
 
-    public void Continue()
-    {
-        PuaseUI.SetActive(false);
-        Time.timeScale = 1;
-    }
+        public void Puase()
+        {
+            PuaseUI.SetActive(true);
+            Time.timeScale = 0;
+        }
 
-    public void CloseGuide()
-    { 
-        GuideUI.SetActive(false);
-        Time.timeScale = 1; 
-    }
+        public void Continue()
+        {
+            PuaseUI.SetActive(false);
+            Time.timeScale = 1;
+        }
 
-    public void ReStart()
-    {
-        SceneManager.LoadScene("PlayScene");
-    }
+        public void CloseGuide()
+        {
+            GuideUI.SetActive(false);
+            Time.timeScale = 1;
+        }
 
-    public void BackToMain()
-    {
-        SceneManager.LoadScene("Bowuguan");
+        public void ReStart()
+        {
+            SceneManager.LoadScene("PlayScene");
+        }
+
+        public void BackToMain()
+        {
+            SceneManager.LoadScene("Bowuguan");
+        }
     }
 }

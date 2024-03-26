@@ -4,22 +4,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using YingMo;
 
-public class Knowledge : MonoBehaviour
-{
-    public PlayerController playerController ;
-    public KnowledgeData data;
-    public GameObject UI;
+namespace YingMo
 
-    private void OnCollisionEnter2D(Collision2D collision)
+{
+    public class Knowledge : MonoBehaviour
     {
-        if (collision.gameObject.CompareTag("Player"))
+        public PlayerController playerController;
+        public KnowledgeData data;
+        public GameObject UI;
+
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            Time.timeScale = 0;
-            UI.SetActive(true);
-            Text text = UI.transform.GetChild(1).GetComponent<Text>();
-            text.text = data.knowledge;
-            playerController.AddHealth();
-            Destroy(gameObject);
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                Time.timeScale = 0;
+                UI.SetActive(true);
+                Text text = UI.transform.GetChild(1).GetComponent<Text>();
+                text.text = data.knowledge;
+                playerController.AddHealth();
+                Destroy(gameObject);
+            }
         }
     }
 }
