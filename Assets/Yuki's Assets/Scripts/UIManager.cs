@@ -43,6 +43,7 @@ namespace Yuki
 
         public void BackToMenu()
         {
+            SceneManager.LoadScene(1);
             Time.timeScale = 1;
         }
 

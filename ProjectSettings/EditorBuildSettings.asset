@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Seyang_s Huge Shit Mountain/Scenes/Chengdu.unity
     guid: 5f15ff657297a2c459fa2c916cfca099
   - enabled: 1
+    path: "Assets/R_Assets/R_Scenes/R\u2014\u2014Game.unity"
+    guid: 366da9f63907ed144b744f2fae15bd2b
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: c1b78f1ed6ab07a46a1d4b2b5ad0369e
   - enabled: 1
