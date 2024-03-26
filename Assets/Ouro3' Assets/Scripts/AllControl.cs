@@ -14,6 +14,7 @@ namespace Ouro3
         public float timeCounter2;
         public float timeCounter3;
         public bool restart;
+        public bool startGame;
         public Controller controller;
 
         public UnityEvent finish;
@@ -33,7 +34,6 @@ namespace Ouro3
         }
         void Start()
         {
-            timeCounter3 = 60f;
             controller = GameObject.FindWithTag("Player").GetComponent<Controller>();
         }
 
@@ -75,11 +75,17 @@ namespace Ouro3
                 timeCounter3 -= Time.deltaTime;
             }
 
-            if (timeCounter3 <= 0)
+            if (timeCounter3 <= 0 && startGame)
             {
                 finish?.Invoke();
                 timeCounter3 = 0;
             }
+        }
+
+        public void StartCount()
+        {
+            timeCounter3 = 60f;
+            startGame = true;
         }
     }
 }

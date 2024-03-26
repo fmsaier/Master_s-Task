@@ -25,7 +25,7 @@ namespace Ouro3
         }
         void Start()
        {
-            size = transform.localScale.x;
+            size = 2;
             step = size * r;
             upRage = iniPosition.y + step;
             downRage = iniPosition.y - step;

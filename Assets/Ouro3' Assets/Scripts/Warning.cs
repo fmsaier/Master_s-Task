@@ -79,19 +79,19 @@ namespace Ouro3
         private void ShootC()
         {
             GameObject b;
-            b = Instantiate(bulletC, transform.position, Quaternion.identity);
+            b = Instantiate(bulletC, transform.position,transform.rotation);
             Rigidbody2D rb;
             rb = b.GetComponent<Rigidbody2D>();
-            rb.velocity = transform.rotation * new Vector3(shootSpeed, 0, 0);
+            rb.velocity = transform.rotation * Quaternion.Euler(0, 0, 90) * new Vector3(shootSpeed, 0, 0);
         }
 
         private void ShootP()
         {
             GameObject b;
-            b = Instantiate(bulletP, transform.position, Quaternion.identity);
+            b = Instantiate(bulletP, transform.position,transform.rotation);
             Rigidbody2D rb;
             rb = b.GetComponent<Rigidbody2D>();
-            rb.velocity = transform.rotation * new Vector3(shootSpeed, 0, 0);
+            rb.velocity = transform.rotation * Quaternion.Euler(0,0,90) * new Vector3(shootSpeed, 0, 0) ;
         }
 
         private void RandomDicider()
