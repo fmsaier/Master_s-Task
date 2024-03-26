@@ -42,7 +42,7 @@ namespace Ouro3
 
         public void BackToMenu()
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene(1);
             Time.timeScale = 1;
         }
 
