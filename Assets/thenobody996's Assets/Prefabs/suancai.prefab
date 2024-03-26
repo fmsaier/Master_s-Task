@@ -122,31 +122,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1586858135368843580}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1987861636643778383}
-        m_TargetAssemblyTypeName: Thenobody.enemy, Assembly-CSharp
-        m_MethodName: Start
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1987861636643778383}
-        m_TargetAssemblyTypeName: Habits, Assembly-CSharp
-        m_MethodName: Destory
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1987861636643778383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 686209a45ca5c054da58241d0e8ccad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemytype: 1
   speed: 50
 --- !u!50 &914228319958965090
 Rigidbody2D:
