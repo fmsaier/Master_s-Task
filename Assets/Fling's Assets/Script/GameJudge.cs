@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -24,6 +25,10 @@ namespace Merryfling
         [Header("通关相关")]
         public GameObject WinPanel;
         public GameObject LosePanel;
+        [Header("暂停相关")]
+        public Text pauseText;
+        public GameObject pausePanel;
+        public GameObject pauseButton;
 
         private void Start()
         {
@@ -97,6 +102,42 @@ namespace Merryfling
         {
             newPanel.SetActive(false);
             Time.timeScale = 1f;
+        }
+
+        public void PauseGame()
+        {
+            if(Time.timeScale != 0f)
+            {
+                pausePanel.SetActive(true);
+                pauseButton.transform.GetChild(0).GetComponent<Text>().text = "继续";
+                pauseText.text = "停";
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                StartCoroutine(ResumeGame());
+            }
+        }
+
+        IEnumerator ResumeGame()
+        {
+            pauseButton.transform.GetChild(0).GetComponent<Text>().text = "暂停";
+            pauseButton.gameObject.GetComponent<Button>().interactable = false;
+
+            for (int i = 3; i >= 1; i--)
+            {
+                pauseText.text = i.ToString();
+                yield return new WaitForSecondsRealtime(1f);
+            }
+            pauseText.text = "0";
+            pausePanel.SetActive(false);
+            pauseButton.gameObject.GetComponent<Button>().interactable = true;
+            Time.timeScale = 1f;
+        }
+
+        public void BackMap()
+        {
+            SceneManager.LoadScene(1);
         }
     }
 }

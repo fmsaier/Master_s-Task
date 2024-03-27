@@ -104,4 +104,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Lio's Assets/Scenes/Lio's Scene.unity
     guid: ee9a73546239ac545a8486614af1e8f2
+  - enabled: 1
+    path: Assets/Fling's Assets/Scene/FlingScene.unity
+    guid: aad9443cd748d824f838799000928833
   m_configObjects: {}

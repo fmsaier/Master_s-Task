@@ -35,7 +35,7 @@ namespace YingMo
 
         public void BackToMain()
         {
-            SceneManager.LoadScene("Bowuguan");
+            SceneManager.LoadScene(1);
         }
     }
 }
