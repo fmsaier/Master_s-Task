@@ -25,7 +25,7 @@ public class ToPYP : MonoBehaviour
 
     public void Next()
     {
-        if (WholePYP.PYPElement<=8)
+        if (WholePYP.PYPElement<=7)
         {
             WholePYP.PYPElement += 1;
         }

@@ -9218,7 +9218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ElementNumberlow: 9
-  ElementNumberbig: 100000000
+  ElementNumberbig: 9
   textElement: {fileID: 983714074}
   imageElement: {fileID: 0}
   flag: 0
@@ -13366,7 +13366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2572b951d1a4f45aaea2d7d8a888b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StringScene: 
+  StringScene: Map
 --- !u!4 &1492364289
 Transform:
   m_ObjectHideFlags: 0
