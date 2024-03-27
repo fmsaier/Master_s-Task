@@ -187,7 +187,9 @@ namespace zaaPro
 
         public void Skip()
         {
-            StartGame();
+            Animator animator = CanvasVoid1.instance.GetComponent<Animator>();
+            animator.SetTrigger("isPanda");
+            StartCoroutine(WaitToShow());
             BackControl.instance.transform.GetChild(0).gameObject.SetActive(false);
             BackControl.instance.transform.GetChild(1).gameObject.SetActive(false);
             CanvasVoid.instance.transform.gameObject.SetActive(false);
@@ -210,7 +212,37 @@ namespace zaaPro
                 childObject.layer = 10;
             }
           
-            StartCoroutine(ChangeScene());
+            StartCoroutine(ChangeScene("Guangyuan1"));
+        }
+
+        public void Switch1()
+        {
+            childObject = BackControl.instance.transform.GetChild(9).gameObject;
+            if (childObject != null)
+            {
+                childObject.layer = 10;
+            }
+            CanvasVoid.instance.gameObject.SetActive(false);
+            StartCoroutine(ChangeScene("1"));
+        }
+
+        public void Switch2()
+        {
+            if (VirusControl.instance.isTime)
+            {
+                childObject = BackControl.instance.transform.GetChild(9).gameObject;
+            }
+            if (!VirusControl.instance.isTime)
+            {
+                childObject = BackControl.instance.transform.GetChild(8).gameObject;
+            }
+
+            if (childObject != null)
+            {
+                childObject.layer = 10;
+            }
+
+            StartCoroutine(ChangeScene("1"));
         }
 
         public void Close1()
@@ -248,7 +280,7 @@ namespace zaaPro
 
         IEnumerator WaitToShow()
         {
-            yield return new WaitForSecondsRealtime(1f);
+            yield return new WaitForSecondsRealtime(2.5f);
 
             for (int i = 0; i < CanvasVoid1.instance.transform.childCount - 1; i++)
             {
@@ -277,7 +309,7 @@ namespace zaaPro
         }
 
 
-        IEnumerator ChangeScene()
+        IEnumerator ChangeScene(string name)
         {
             Animator animator = CanvasVoid1.instance.GetComponent<Animator>();
             animator.SetTrigger("isPanda");
@@ -288,7 +320,7 @@ namespace zaaPro
             }
         
             yield return new WaitForSecondsRealtime(2.5f);
-            SceneManager.LoadSceneAsync("Guangyuan1");
+            SceneManager.LoadSceneAsync(name);
 
         }
 

@@ -15,13 +15,18 @@ namespace zaaPro
             {
                 instance = this;
             }
+            
+        }
 
+        private void Start()
+        {
+           
         }
 
         // Update is called once per frame
         void Update()
         {
-
+        
         }
     }
 }
