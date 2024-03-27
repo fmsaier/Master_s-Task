@@ -9,6 +9,7 @@ namespace Thenobody
     {
         public GameObject startpanel;
         public GameObject endpanel;
+        public GameObject pausepanel;
 
         private void OnEnable()
         {
@@ -27,7 +28,17 @@ namespace Thenobody
             endpanel.SetActive(true);
             HabitsScore.instance.onEnd -= EndGame;
         }
+        public void PauseGame()
+        {
+            pausepanel.SetActive(true);
+            Time.timeScale = 0f;
+        }
 
+        public void Continue()
+        {
+            pausepanel.SetActive(false);
+            Time.timeScale = 1f;
+        }
         public void NewGame()
         {
             SceneManager.LoadScene("thenobody996's Scene");
@@ -36,6 +47,7 @@ namespace Thenobody
 
         public void back()
         {
+            Time.timeScale = 1.0f;
             SceneManager.LoadScene(1);
         }
     }
