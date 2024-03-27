@@ -18,8 +18,14 @@ EditorBuildSettings:
     path: "Assets/R_Assets/R_Scenes/R\u2014\u2014Game.unity"
     guid: 366da9f63907ed144b744f2fae15bd2b
   - enabled: 1
+    path: Assets/XLZXLZ's ShitMountain/Scene/XLZXLZ's Scene.unity
+    guid: ec8e368cd9b21984dbf241b7b072a7a0
+  - enabled: 1
     path: Assets/Ouro3' Assets/Ouro3's Scene.unity
     guid: ebac4a30a6726c441aec49603c2f9ab5
+  - enabled: 1
+    path: Assets/thenobody996's Assets/thenobody996's Scene.unity
+    guid: 2826c8ab48d2b9b498797f71ad47084a
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: c1b78f1ed6ab07a46a1d4b2b5ad0369e

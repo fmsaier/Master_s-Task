@@ -16,7 +16,7 @@ public class Tin_R : MonoBehaviour
     public void Back()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Map");
     }
     public void Next()
     {
