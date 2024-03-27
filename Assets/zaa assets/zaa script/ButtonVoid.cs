@@ -223,7 +223,7 @@ namespace zaaPro
                 childObject.layer = 10;
             }
             CanvasVoid.instance.gameObject.SetActive(false);
-            StartCoroutine(ChangeScene("1"));
+            StartCoroutine(ChangeScene("Map"));
         }
 
         public void Switch2()
@@ -242,7 +242,7 @@ namespace zaaPro
                 childObject.layer = 10;
             }
 
-            StartCoroutine(ChangeScene("1"));
+            StartCoroutine(ChangeScene("Map"));
         }
 
         public void Close1()
@@ -280,7 +280,7 @@ namespace zaaPro
 
         IEnumerator WaitToShow()
         {
-            yield return new WaitForSecondsRealtime(2.5f);
+            yield return new WaitForSecondsRealtime(2.2f);
 
             for (int i = 0; i < CanvasVoid1.instance.transform.childCount - 1; i++)
             {
@@ -319,7 +319,7 @@ namespace zaaPro
                 BackControl.instance.transform.GetChild(i).gameObject.SetActive(false);
             }
         
-            yield return new WaitForSecondsRealtime(2.5f);
+            yield return new WaitForSecondsRealtime(3f);
             SceneManager.LoadSceneAsync(name);
 
         }
