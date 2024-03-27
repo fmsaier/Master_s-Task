@@ -2320,7 +2320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   click: {fileID: 1601744145}
   sceneFrom: Start
-  sceneTogo: Bowuguan
+  sceneTogo: Map
 --- !u!82 &1601744145
 AudioSource:
   m_ObjectHideFlags: 0
