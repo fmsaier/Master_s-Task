@@ -38,6 +38,6 @@ public class Pause_R : MonoBehaviour
     public void BackToMenu()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Start");
+        SceneManager.LoadScene(1);
     }
 }
