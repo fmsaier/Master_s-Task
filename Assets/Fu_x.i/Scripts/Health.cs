@@ -19,7 +19,6 @@ namespace Fu_x.i
 
         public void ChangeHealth(float amount)
         {
-            Debug.Log("Change Health: " + amount);
             currentHealth += amount;
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
             UpdateSprite();
