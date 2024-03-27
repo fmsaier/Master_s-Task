@@ -59,6 +59,8 @@ namespace Ouro3
         public void StartGame()
         {
             AllControl.instance.restart = true;
+            AllControl.instance.startGame = true;
+            Time.timeScale = 1;
         }
     }
 
