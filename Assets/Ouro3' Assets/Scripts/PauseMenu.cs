@@ -42,8 +42,9 @@ namespace Ouro3
 
         public void BackToMenu()
         {
-            SceneManager.LoadScene(1);
             Time.timeScale = 1;
+            SceneManager.LoadScene(1);
+
         }
 
         public void QuitGame()

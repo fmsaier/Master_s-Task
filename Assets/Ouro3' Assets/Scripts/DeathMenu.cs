@@ -23,8 +23,8 @@ namespace Ouro3
 
         public void BackToMenu()
         {
-            SceneManager.LoadScene(1);
             Time.timeScale = 1;
+            SceneManager.LoadScene(1);
         }
 
         public void QuitGame()
@@ -48,13 +48,13 @@ namespace Ouro3
 
         public void Reload()
         {
-            SceneManager.LoadScene("Ouro3's Scene");
             Time.timeScale = 1;
+            SceneManager.LoadScene("Ouro3's Scene");
         }
         public void NextLevel()
         {
-            SceneManager.LoadScene("thenobody996's Scene");
             Time.timeScale = 1;
+            SceneManager.LoadScene("thenobody996's Scene");
         }
         public void StartGame()
         {
