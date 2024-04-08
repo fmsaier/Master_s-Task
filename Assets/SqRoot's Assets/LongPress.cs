@@ -5,7 +5,8 @@ namespace SqR
     public class LongPress : MonoBehaviour
     {
         public static float SqrValue;
-        public static bool IsJump = true;
+        public static bool IsJump = false;
+        public static int StageNum = 0;
 
         public float minTime;  //开始底限
         public float maxTime;  //长按上限 
@@ -13,8 +14,14 @@ namespace SqR
         public bool longPressed = false;  //算不算长按
         public float pressTime = 0f;  //按下的时间
 
+        public float sqrValueShow;
+        public bool isJumpShow;
+
         public void Update()
         {
+            sqrValueShow = SqrValue;
+            isJumpShow = IsJump;
+
             if (buttonPressed)
             {
                 pressTime += Time.deltaTime;
@@ -30,7 +37,6 @@ namespace SqR
             if (!IsJump)
             {
                 buttonPressed = true;
-                IsJump = true;
             }
         } 
 
