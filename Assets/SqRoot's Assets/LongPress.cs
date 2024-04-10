@@ -1,6 +1,7 @@
 namespace SqR
 {
     using UnityEngine;
+    using SqR;
 
     public class LongPress : MonoBehaviour
     {

@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
     public Transform target;
     public float smoothing;  //平滑因子
 
-    public Text stageNum;
+    public Text stageNum;  //一块把数据显示写了
     public Text meter;
     public GameObject player;
     public Transform trans;
@@ -16,6 +16,7 @@ public class CameraFollow : MonoBehaviour
     {
         trans = player.GetComponent<Transform>();
     }
+
     private void Update()
     {
         stageNum.text = "格子数量：" + SqR.LongPress.StageNum.ToString();
